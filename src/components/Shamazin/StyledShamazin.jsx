@@ -13,6 +13,10 @@ ${props => props.primary && css`
     color:white;
 `}
 
+${props => props.secondary && css`
+    background: palevioletred;
+    color:purple;
+`}
 `;
 
 // A new component based on Button, but with some override styles

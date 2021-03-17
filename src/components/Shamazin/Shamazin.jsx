@@ -73,7 +73,7 @@ class Shamazin extends React.Component{
                 <Button>Styled Button</Button>
                 <TomatoButton>Tomato Color Styled Button</TomatoButton>
                 <ShamazinStyled.BlueButton>Blue Styled Button</ShamazinStyled.BlueButton> 
-                <ShamazinStyled.BlueButton primary>Blue Styled Button with property primary</ShamazinStyled.BlueButton>                 
+                <ShamazinStyled.BlueButton secondary>Blue Styled Button with property primary</ShamazinStyled.BlueButton>                 
                 <ShamazinStyled.DarkBlueButton>Dark Blue Styled Button</ShamazinStyled.DarkBlueButton>
                 
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png"/>
