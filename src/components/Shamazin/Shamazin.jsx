@@ -1,6 +1,6 @@
 import React from 'react';
-import TestChildComponent from "./TestChildComponent";
-import ProductPhotoService from '../service/productPhotoService';
+import TestChildComponent from "../TestChildComponent";
+import ProductPhotoService from '../../service/productPhotoService';
 
 
 
@@ -18,7 +18,7 @@ class Shamazin extends React.Component{
 
     
     componentDidMount(){
-        ProductPhotoService.getProductPhotosByItemID(3)
+        ProductPhotoService.getProductPhotosByItemID(10)
             .then(response => {
                 console.log(response);
                 console.log(response.data[0].photoURL);
@@ -41,7 +41,7 @@ class Shamazin extends React.Component{
             <div>
                 HELLO SHAMAZIN ITEM COMPONENT!!!!HELLO
                 PRODUCT TITLE: {this.state.photoURL}
-
+                
                 <br/>
                 
                 ALL THE PRODUCT PHOTOS FOR ITEM WITH ID 3
