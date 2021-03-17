@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Shamazin from '../src/components/Shamazin';
+import Shamazin from '../src/components/Shamazin/Shamazin';
 
 function App() {
   return (

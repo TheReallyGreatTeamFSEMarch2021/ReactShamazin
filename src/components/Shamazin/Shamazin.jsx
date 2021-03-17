@@ -1,9 +1,26 @@
 import React from 'react';
-import TestChildComponent from "../TestChildComponent";
+import TestChildComponent from "../TestChildComponent/TestChildComponent";
 import ProductPhotoService from '../../service/productPhotoService';
+import styled, {css} from 'styled-components';
+import * as ShamazinStyled from './StyledShamazin';
+import './Shamazin.css';
 
 
+// The Button from the last section without the interpolations
+const Button = styled.button`
+color: palevioletred;
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+border: 2px solid palevioletred;
+border-radius: 3px;
+`;
 
+// A new component based on Button, but with some override styles
+const TomatoButton = styled(Button)`
+color: tomato;
+border-color: tomato;
+`;
 
 class Shamazin extends React.Component{
     constructor(props){
@@ -13,6 +30,7 @@ class Shamazin extends React.Component{
             photoURL: "initial",
             photosForItem: []
         }
+        
         
     }
 
@@ -36,11 +54,13 @@ class Shamazin extends React.Component{
             )
         })
 
+        
+
        
         return(
             <div>
-                HELLO SHAMAZIN ITEM COMPONENT!!!!HELLO
-                PRODUCT TITLE: {this.state.photoURL}
+                <h1>HELLO SHAMAZIN ITEM COMPONENT!!!!HELLO</h1>
+                <h2>PRODUCT TITLE: {this.state.photoURL}</h2>
                 
                 <br/>
                 
@@ -49,7 +69,12 @@ class Shamazin extends React.Component{
                 <ul>
                     {photosList}
                 </ul>
-                   
+
+                <Button>Styled Button</Button>
+                <TomatoButton>Tomato Color Styled Button</TomatoButton>
+                <ShamazinStyled.BlueButton>Blue Styled Button</ShamazinStyled.BlueButton> 
+                <ShamazinStyled.BlueButton primary>Blue Styled Button with property primary</ShamazinStyled.BlueButton>                 
+                <ShamazinStyled.DarkBlueButton>Dark Blue Styled Button</ShamazinStyled.DarkBlueButton>
                 
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png"/>
                 <br/>
