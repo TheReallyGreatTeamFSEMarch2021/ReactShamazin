@@ -4,7 +4,8 @@ import ProductPhotoService from '../../service/productPhotoService';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
 import './Shamazin.css';
-
+import ProductPhotosComponent from '../ProductPhotos/productPhotos';
+import ShamazinService from '../../service/shamazinService';
 
 // The Button from the last section without the interpolations
 const Button = styled.button`
@@ -28,7 +29,9 @@ class Shamazin extends React.Component{
         this.state={
             title: "ORIGINAL TITLE IN SHAMAZIN PARENT COMPONENT",
             photoURL: "initial",
-            photosForItem: []
+            photosForItem: [],
+            itemID: props.match.params.itemID,
+            item: {}
         }
         
         
@@ -36,40 +39,30 @@ class Shamazin extends React.Component{
 
     
     componentDidMount(){
-        ProductPhotoService.getProductPhotosByItemID(10)
-            .then(response => {
-                console.log(response);
-                console.log(response.data[0].photoURL);
-                this.setState({photoURL: response.data[0].photoURL})
-                this.setState({photosForItem: response.data})
+        console.log("SHOUld DISPLAY ITEMID");
+        console.log(this.state.itemID);
+        ShamazinService.getItemById(this.state.itemID)
+            .then(response=>{
+                console.log("ITEM!!!!!!")
+                console.log(response.data);
+                this.setState({item:response.data})
             })
     }
 
     
     
     render(){
-        const photosList = this.state.photosForItem.map(productPhoto => {
-            return(
-                <li>{productPhoto.photoURL}</li>
-            )
-        })
-
-        
-
        
         return(
             <div>
-                <h1>HELLO SHAMAZIN ITEM COMPONENT!!!!HELLO</h1>
+                <h1>HELLO SHAMAZIN ITEM COMPONENT!!!! {this.state.item.name}</h1>
                 <h2>PRODUCT TITLE: {this.state.photoURL}</h2>
-                
+                <h2>{this.state.itemID}</h2>
+                <ProductPhotosComponent
+                    itemID={this.state.itemID}
+                />
+                    
                 <br/>
-                
-                ALL THE PRODUCT PHOTOS FOR ITEM WITH ID 3
-
-                <ul>
-                    {photosList}
-                </ul>
-
                 <Button>Styled Button</Button>
                 <TomatoButton>Tomato Color Styled Button</TomatoButton>
                 <ShamazinStyled.BlueButton>Blue Styled Button</ShamazinStyled.BlueButton> 
