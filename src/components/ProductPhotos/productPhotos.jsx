@@ -16,10 +16,10 @@ class ProductPhotos extends React.Component {
     componentDidMount(){
         ProductPhotoService.getProductPhotosByItemID(this.state.itemID) //this.state.itemID
             .then(response => {
-                console.log(response);
-                console.log(response.data[0].photoURL);
-                this.setState({mainPhotoURL: response.data[0].photoURL});
                 this.setState({productPhotos: response.data});
+                if(response.data.length>0){
+                    this.setState({mainPhotoURL: response.data[0].photoURL});
+                }
             });
     }
 
@@ -40,8 +40,8 @@ class ProductPhotos extends React.Component {
         return(
             <div class="productPhotoContainer">
                 <div class="row">
-                    <div class="mainPhoto col-3"><img class="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
-                    <div class="allPhotos col-9">{photosList}</div>
+                    <div class="allPhotos col-3">{photosList}</div>
+                    <div class="mainPhoto col-9"><img class="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
                 </div>
                 
                 <h3>Roll over image to zoom in.</h3>

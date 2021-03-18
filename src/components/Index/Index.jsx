@@ -13,7 +13,6 @@ class Index extends React.Component{
     componentDidMount(){
         IndexService.getAll()
             .then(response => {
-                console.log(response.data);
                 this.setState({items: response.data });
         })
     }

@@ -1,5 +1,6 @@
 import styled, {css} from 'styled-components'
 
+
 // The Button from the last section without the interpolations
 export const Button = styled.button`
 color: palevioletred;
