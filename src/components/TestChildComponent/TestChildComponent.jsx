@@ -17,7 +17,6 @@ class TestChildComponent extends React.Component{
                     <h1>HELLO TestChildComponent ITEM COMPONENT</h1>
                     <p>TestChild</p>
                     <br/><br/>
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/5E64/production/_117346142_hitler.png"/>
                     accessing passed props from parent
                     <h1>
                         {this.props.passedProp}
