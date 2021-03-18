@@ -1,5 +1,5 @@
 import React from 'react';
-import IndexService from '../../service/indexService';
+import {getAllItems} from '../../service/indexService';
 import {Link} from 'react-router-dom';
 
 class Index extends React.Component{
@@ -11,7 +11,7 @@ class Index extends React.Component{
     }
 
     componentDidMount(){
-        IndexService.getAll()
+        getAllItems()
             .then(response => {
                 this.setState({items: response.data });
         })
