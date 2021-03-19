@@ -5,6 +5,7 @@ import TestChildComponent from "../TestChild/TestChild";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
+import TitleComponent from '../Title/titleComponent';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -44,7 +45,10 @@ class Shamazin extends React.Component{
                             itemID={this.state.itemID}
                         />
                     </div>
-                    <div class='col-itemInfo'>
+                    <TitleComponent
+                        item={this.state.item}
+                    />
+                    {/* <div class='col-itemInfo'>
                         <div class="row col-12">
                             <h1>{this.state.item.name}</h1>
                             <h1>Rating Component</h1>
@@ -56,8 +60,7 @@ class Shamazin extends React.Component{
                             <h3>Includes Price, Prime Logo</h3>
                             <h3>Includes Diff Features</h3>
                         </div>
-                        
-                    </div>
+                    </div> */}
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>
