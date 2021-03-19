@@ -1,5 +1,12 @@
 import styled, {css} from 'styled-components'
 
+
+export const Navbar = styled.div`
+    border: 1px solid green;
+    
+`;
+
+
 // The Button from the last section without the interpolations
 export const Button = styled.button`
 color: palevioletred;

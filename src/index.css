@@ -8,13 +8,15 @@ body {
 }
 
 body{
-  margin:2em;
   padding:0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1{
+  color:darkblue;
+}
+
+h2{
+  color:darkgreen;
 }
 
 /* added by Fei */
@@ -26,7 +28,7 @@ code {
 
 [class*="col-"]{
   float:left;
-  padding:15px;
+  padding:2px;
 }
 
 .col-1 {width: 8.33%;}
@@ -41,3 +43,8 @@ code {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+.col-itemInfo{width:46%;}
+.col-cart{width:20.66%;}
+.col-ratingstats{width:30%;}
+.col-reviews{width:70%;}
