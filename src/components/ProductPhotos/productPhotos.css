@@ -1,7 +1,7 @@
 .galleryPhoto {
-    max-height: 100px;
+    max-width:100%;
 }
 
 .mainImg {
-    max-height: 500px;
+    max-width: 100%;
 }

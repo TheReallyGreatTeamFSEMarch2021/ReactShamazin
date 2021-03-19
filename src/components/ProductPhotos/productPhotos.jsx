@@ -40,8 +40,8 @@ class ProductPhotos extends React.Component {
         return(
             <div class="productPhotoContainer">
                 <div class="row">
-                    <div class="allPhotos col-3">{photosList}</div>
-                    <div class="mainPhoto col-9"><img class="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
+                    <div class="allPhotos col-2">{photosList}</div>
+                    <div class="mainPhoto col-10"><img class="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
                 </div>
                 
                 <h3>Roll over image to zoom in.</h3>
