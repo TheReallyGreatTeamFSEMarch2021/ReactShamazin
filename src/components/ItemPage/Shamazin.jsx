@@ -2,6 +2,7 @@ import React from 'react';
 import ShamazinService from '../../service/shamazinService';
 import ProductPhotosComponent from '../ProductPhotos/productPhotos';
 import TestChildComponent from "../TestChild/TestChild";
+import ReviewComponent from "../Review/reviewComponent";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
@@ -77,6 +78,9 @@ class Shamazin extends React.Component{
                         <div class="row col-12">
                             <h1>All Customer Images Component</h1>
                             <h1>Reviews Component</h1>
+                            <ReviewComponent 
+                                itemID={this.state.itemID}
+                            />
                         </div>
                     </div>
 
