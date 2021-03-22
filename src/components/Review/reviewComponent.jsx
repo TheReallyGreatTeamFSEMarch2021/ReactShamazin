@@ -5,17 +5,26 @@ class ReviewComponent extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            itemId : props.itemId,
+            itemID : props.itemID,
             reviews : []
         }
     }
 
+    componentDidMount(){
+        ReviewService.getReviewsByItemFamily(this.state.itemID)
+            .then(response => {
+                console.log("id: "+ this.state.itemID);
+                console.log(response.data);
+            })
+    }
 
     render(){
         return(
             <div class="col-12">
-                <h1>Hello</h1>
+                
             </div>
         );
     }
 }
+
+export default ReviewComponent;
