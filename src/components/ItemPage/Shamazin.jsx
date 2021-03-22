@@ -32,7 +32,6 @@ class Shamazin extends React.Component{
     
     
     render(){
-       
         return(
             <div class="itemPageContainer">
                 <div class="row navBar col-12">
@@ -79,7 +78,7 @@ class Shamazin extends React.Component{
                             <h1>All Customer Images Component</h1>
                             <h1>Reviews Component</h1>
                             <ReviewComponent 
-                                itemID={this.state.itemID}
+                                itemFamilyID={this.state.item.id}
                             />
                         </div>
                     </div>

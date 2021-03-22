@@ -5,23 +5,24 @@ class ReviewComponent extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            itemID : props.itemID,
+            itemFamilyID : props.itemFamilyID,
             reviews : []
         }
     }
 
+    
     componentDidMount(){
-        ReviewService.getReviewsByItemFamily(this.state.itemID)
+        console.log("FamilyID: "+ this.state.itemFamilyID);
+        ReviewService.getReviewsByItemFamily(this.state.itemFamilyID)
             .then(response => {
-                console.log("id: "+ this.state.itemID);
                 console.log(response.data);
+                this.setState({reviews: response.data})
             })
     }
 
     render(){
         return(
             <div class="col-12">
-                
             </div>
         );
     }
