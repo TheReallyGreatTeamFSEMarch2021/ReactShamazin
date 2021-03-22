@@ -16,7 +16,8 @@ class Shamazin extends React.Component{
             photoURL: "initial",
             photosForItem: [],
             itemID: props.match.params.itemID,
-            item: {}
+            item: {},
+            itemFamilyID : 0
         }
         
     }
@@ -25,8 +26,18 @@ class Shamazin extends React.Component{
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
-                this.setState({item:response.data})
+                const itemToSet = response.data;
+                ShamazinService.getFamilyId(this.state.itemID)
+                    .then( response=>{
+                        console.log("FamilyId(Shamazin): "+ response.data);
+                        this.setState({itemFamilyID: response.data,
+                                        item: itemToSet});
+                    });
+               // this.setState({item:response.data});
             })
+        
+        
+        
     }
 
     
@@ -78,7 +89,7 @@ class Shamazin extends React.Component{
                             <h1>All Customer Images Component</h1>
                             <h1>Reviews Component</h1>
                             <ReviewComponent 
-                                itemFamilyID={this.state.item.id}
+                                itemFamilyID={this.state.itemFamilyID}
                             />
                         </div>
                     </div>
