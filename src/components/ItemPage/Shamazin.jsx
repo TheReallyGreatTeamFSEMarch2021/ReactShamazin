@@ -26,16 +26,14 @@ class Shamazin extends React.Component{
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
-                const itemToSet = response.data;
-                ShamazinService.getFamilyId(this.state.itemID)
-                    .then( response=>{
-                        console.log("FamilyId(Shamazin): "+ response.data);
-                        this.setState({itemFamilyID: response.data,
-                                        item: itemToSet});
-                    });
-               // this.setState({item:response.data});
-            })
-        
+                this.setState({item:response.data});
+            });
+            
+            ShamazinService.getFamilyId(this.state.itemID)
+            .then( response=>{
+                console.log("FamilyId(Shamazin): "+ response.data);
+                this.setState({itemFamilyID: response.data});
+            });
         
         
     }
