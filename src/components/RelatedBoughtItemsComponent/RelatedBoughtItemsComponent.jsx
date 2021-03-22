@@ -25,6 +25,14 @@ class RelatedBoughtItemsComponent extends React.Component {
             });
     }
 
+    displayRelatedItems() {
+        const { relatedItems } = this.state;
+
+        return relatedItems.map(item => {
+            return <RelatedItemDisplayComponent item={item} />
+        });
+    }
+
 
 
     render() {
@@ -33,12 +41,7 @@ class RelatedBoughtItemsComponent extends React.Component {
         return (
             <div class="RelatedBoughtItems">
                 <div>Back Arrow</div>
-                {relatedItems.map(item => {
-                    console.log(item);
-                    return <RelatedItemDisplayComponent 
-                        item={item}
-                    />
-                })}
+                {this.displayRelatedItems()}
                 <div>Forward Arrow</div>
             </div>
         )
