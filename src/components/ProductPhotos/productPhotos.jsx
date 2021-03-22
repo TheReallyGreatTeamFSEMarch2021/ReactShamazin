@@ -23,17 +23,14 @@ class ProductPhotos extends React.Component {
             });
     }
 
-    changeMainPicture(id) {
-        ProductPhotoService.getProductPhotoByID(id)
-        .then(response=> {
-            this.setState({mainPhotoURL: response.data.photoURL});
-        });
+    changeMainPicture(photoUrl) {
+        this.setState({mainPhotoURL: photoUrl});
     }
 
     render() {
         const photosList = this.state.productPhotos.map(productPhoto => {
             return (
-                <img class="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.id)}/>
+                <img class="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
             );
         });
 
