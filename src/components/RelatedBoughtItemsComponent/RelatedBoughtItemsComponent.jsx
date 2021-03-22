@@ -36,8 +36,6 @@ class RelatedBoughtItemsComponent extends React.Component {
 
 
     render() {
-        const { relatedItems } = this.state;
-
         return (
             <div class="RelatedBoughtItems">
                 <div>Back Arrow</div>
