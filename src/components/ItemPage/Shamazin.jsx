@@ -31,7 +31,7 @@ class Shamazin extends React.Component{
     
     
     render(){
-       
+        
         return(
             <div class="itemPageContainer">
                 <div class="row navBar col-12">
