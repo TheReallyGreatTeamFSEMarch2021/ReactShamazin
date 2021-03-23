@@ -31,7 +31,6 @@ class Shamazin extends React.Component{
             
             ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
-                console.log("FamilyId(Shamazin): "+ response.data);
                 this.setState({itemFamilyID: response.data});
             });
         
