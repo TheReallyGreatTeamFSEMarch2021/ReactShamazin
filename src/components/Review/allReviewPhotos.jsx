@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewService from '../../service/reviewService';
+import "./review.css"
 
 class AllReviewPhotos extends React.Component {
     constructor(props){
@@ -13,13 +14,28 @@ class AllReviewPhotos extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if(prevProps.itemFamilyID !== this.props.itemFamilyID){
-           console.log(this.props.itemFamilyID);
+            console.log(this.props.itemFamilyID);
+            ReviewService.getPhotosByItemFamily(this.props.itemFamilyID)
+                .then(response => {
+                    this.setState({photos: response.data})
+                    console.log(this.state.photos)
+                })
         }
     }
 
     render(){
+        const reviewPhotos = this.state.photos.map(photo => {
+            return(
+                <div class="photoContainer">
+                    <img class="reviewPhoto" src={photo.photoURL}/>
+                </div>
+            )
+        });
+
         return(
-            <div>Hello</div>
+            <div>
+                {reviewPhotos}
+            </div>
         )
     }
 
