@@ -35,7 +35,7 @@ class TestChildComponent extends React.Component{
 
     render(){
             return(
-                <div class="testChildContainer">
+                <div className="testChildContainer">
                     <h1>TestChildComponent</h1>
                     <h2>Accessing passed props from parent</h2>
                     <h3>

@@ -29,16 +29,16 @@ class ProductPhotos extends React.Component {
 
     render() {
         const photosList = this.state.productPhotos.map(productPhoto => {
-            return (
-                <img class="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
+            return(
+                <img key={productPhoto.id} className="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
             );
         });
 
         return(
-            <div class="productPhotoContainer">
-                <div class="row col-12">
-                    <div class="allPhotos col-2">{photosList}</div>
-                    <div class="mainPhoto col-10"><img class="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
+            <div className="productPhotoContainer">
+                <div className="row col-12">
+                    <div className="allPhotos col-2">{photosList}</div>
+                    <div className="mainPhoto col-10"><img className="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
                 </div>
                 
                 <h3>Roll over image to zoom in.</h3>
