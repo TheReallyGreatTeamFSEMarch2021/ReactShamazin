@@ -42,13 +42,13 @@ class Shamazin extends React.Component{
     
     render(){
         return(
-            <div class="itemPageContainer">
-                <div class="row navBar col-12">
-                    <h1 class="col-12">Navbar</h1>
+            <div className="itemPageContainer">
+                <div className="row navBar col-12">
+                    <h1 className="col-12">Navbar</h1>
 
                 </div>
-                <div class="row col-12">
-                    <div class='col-4'>
+                <div className="row col-12">
+                    <div className='col-4'>
                         <ProductPhotosComponent
                             itemID={this.state.itemID}
                         />
@@ -56,36 +56,23 @@ class Shamazin extends React.Component{
                     <TitleComponent
                         item={this.state.item}
                     />
-                    {/* <div class='col-itemInfo'>
-                        <div class="row col-12">
-                            <h1>{this.state.item.name}</h1>
-                            <h1>Rating Component</h1>
-                            <h3>Includes ratings icon. # Ratings</h3>
-                            <h3>Includes Num answered questions</h3>
-                        </div>
-                        <div class='row col-12'>
-                            <h1>Features Component</h1>
-                            <h3>Includes Price, Prime Logo</h3>
-                            <h3>Includes Diff Features</h3>
-                        </div>
-                    </div> */}
-                    <div class='col-cart'>
+                    <div className='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>
                 </div>
-                <div class="row col-12">
+                <div className="row col-12">
                     <h1>Related Items Component</h1>
                 </div>
-                <div class="row col-12">
+                <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
                 </div>
-                <div class="row col-12">
-                    <div class="row col-ratingstats">
+                <div className="row col-12">
+                    <div className="row col-ratingstats">
                         Customer Reviews
                         <h1>Ratings Statistics Table Component</h1>
                     </div>
-                    <div class="row col-reviews">
-                        <div class="row col-12">
+                    <div className="row col-reviews">
+                        <div className="row col-12">
                             <h1>All Customer Images Component</h1>
                             <ReviewComponent 
                                 itemFamilyID={this.state.itemFamilyID}
@@ -94,7 +81,7 @@ class Shamazin extends React.Component{
                     </div>
 
                 </div>
-                <div class="row col-12">
+                <div className="row col-12">
                     <TestChildComponent
                         passedProp={this.state.title}
                     />
