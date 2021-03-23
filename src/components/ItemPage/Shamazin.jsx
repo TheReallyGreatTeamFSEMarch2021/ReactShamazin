@@ -7,6 +7,7 @@ import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
 import TitleComponent from '../Title/titleComponent';
+import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -30,11 +31,10 @@ class Shamazin extends React.Component{
                 this.setState({item:response.data});
             });
             
-            ShamazinService.getFamilyId(this.state.itemID)
+        ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
                 this.setState({itemFamilyID: response.data});
             });
-        
         
     }
 
@@ -56,24 +56,14 @@ class Shamazin extends React.Component{
                     <TitleComponent
                         item={this.state.item}
                     />
-                    {/* <div class='col-itemInfo'>
-                        <div class="row col-12">
-                            <h1>{this.state.item.name}</h1>
-                            <h1>Rating Component</h1>
-                            <h3>Includes ratings icon. # Ratings</h3>
-                            <h3>Includes Num answered questions</h3>
-                        </div>
-                        <div class='row col-12'>
-                            <h1>Features Component</h1>
-                            <h3>Includes Price, Prime Logo</h3>
-                            <h3>Includes Diff Features</h3>
-                        </div>
-                    </div> */}
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>
                 </div>
-                <div class="row col-12">
+                <ItemSwitcherComponent
+                    itemFamilyId={this.state.itemFamilyID}
+                />
+                <div className="row col-12">
                     <h1>Related Items Component</h1>
                 </div>
                 <div class="row col-12">
