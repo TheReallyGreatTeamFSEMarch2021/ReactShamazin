@@ -6,6 +6,7 @@ import ReviewComponent from "../Review/reviewComponent";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
+import {getInfosByItemId} from '../../service/infoService';
 import TitleComponent from '../Title/titleComponent';
 // import '../../index.css';
 
@@ -18,6 +19,7 @@ class Shamazin extends React.Component{
             photosForItem: [],
             itemID: props.match.params.itemID,
             item: {},
+            infos: [],
             itemFamilyID : 0
         }
         
@@ -27,15 +29,16 @@ class Shamazin extends React.Component{
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
-                this.setState({item:response.data});
-            });
-            
-            ShamazinService.getFamilyId(this.state.itemID)
+                this.setState({item:response.data})
+        });
+        getInfosByItemId(this.state.itemID)
+            .then(response=> {
+                this.setState({infos:response.data})
+        });
+        ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
-                this.setState({itemFamilyID: response.data});
-            });
-        
-        
+                this.setState({itemFamilyID: response.data})
+        });
     }
 
     
