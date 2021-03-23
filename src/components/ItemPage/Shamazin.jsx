@@ -2,10 +2,12 @@ import React from 'react';
 import ShamazinService from '../../service/shamazinService';
 import ProductPhotosComponent from '../ProductPhotos/productPhotos';
 import TestChildComponent from "../TestChild/TestChild";
+import ReviewComponent from "../Review/reviewComponent";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
 import {getInfosByItemId} from '../../service/infoService';
+import TitleComponent from '../Title/titleComponent';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -18,6 +20,7 @@ class Shamazin extends React.Component{
             itemID: props.match.params.itemID,
             item: {},
             infos: [],
+            itemFamilyID : 0
         }
         
     }
@@ -27,17 +30,20 @@ class Shamazin extends React.Component{
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
                 this.setState({item:response.data})
-                getInfosByItemId(this.state.itemID).then(response=> {
-                    this.setState({infos:response.data})
-                })
-
-            })
+        });
+        getInfosByItemId(this.state.itemID)
+            .then(response=> {
+                this.setState({infos:response.data})
+        });
+        ShamazinService.getFamilyId(this.state.itemID)
+            .then( response=>{
+                this.setState({itemFamilyID: response.data})
+        });
     }
 
     
     
     render(){
-        
         return(
             <div class="itemPageContainer">
                 <div class="row navBar col-12">
@@ -50,7 +56,10 @@ class Shamazin extends React.Component{
                             itemID={this.state.itemID}
                         />
                     </div>
-                    <div class='col-itemInfo'>
+                    <TitleComponent
+                        item={this.state.item}
+                    />
+                    {/* <div class='col-itemInfo'>
                         <div class="row col-12">
                             <h1>{this.state.item.name}</h1>
                             <h1>Rating Component</h1>
@@ -62,8 +71,7 @@ class Shamazin extends React.Component{
                             <h3>Includes Price, Prime Logo</h3>
                             <h3>Includes Diff Features</h3>
                         </div>
-                        
-                    </div>
+                    </div> */}
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>
@@ -82,7 +90,9 @@ class Shamazin extends React.Component{
                     <div class="row col-reviews">
                         <div class="row col-12">
                             <h1>All Customer Images Component</h1>
-                            <h1>Reviews Component</h1>
+                            <ReviewComponent 
+                                itemFamilyID={this.state.itemFamilyID}
+                            />
                         </div>
                     </div>
 
