@@ -1,0 +1,39 @@
+.review{
+    clear: both;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    display: block;
+    overflow: auto;
+}
+
+.review_titleSection{
+    font-size: 18px;
+}
+
+.review_starRating{
+    float:left;
+    margin-right: 3px;
+}
+
+.review_title{
+    float: left;
+    font-weight: bold;
+}
+
+.review_content{
+    clear: both;
+    font-size: 15px;
+}
+
+.review_score{
+    clear: both;
+    float: left;
+    font-size: 14px;
+}
+
+.productReviews{
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import ShamazinService from '../../service/shamazinService';
 import ProductPhotosComponent from '../ProductPhotos/productPhotos';
 import TestChildComponent from "../TestChild/TestChild";
+import ReviewComponent from "../Review/reviewComponent";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
@@ -15,7 +16,8 @@ class Shamazin extends React.Component{
             photoURL: "initial",
             photosForItem: [],
             itemID: props.match.params.itemID,
-            item: {}
+            item: {},
+            itemFamilyID : 0
         }
         
     }
@@ -24,14 +26,20 @@ class Shamazin extends React.Component{
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
-                this.setState({item:response.data})
-            })
+                this.setState({item:response.data});
+            });
+            
+            ShamazinService.getFamilyId(this.state.itemID)
+            .then( response=>{
+                this.setState({itemFamilyID: response.data});
+            });
+        
+        
     }
 
     
     
     render(){
-        
         return(
             <div class="itemPageContainer">
                 <div class="row navBar col-12">
@@ -76,7 +84,9 @@ class Shamazin extends React.Component{
                     <div class="row col-reviews">
                         <div class="row col-12">
                             <h1>All Customer Images Component</h1>
-                            <h1>Reviews Component</h1>
+                            <ReviewComponent 
+                                itemFamilyID={this.state.itemFamilyID}
+                            />
                         </div>
                     </div>
 
