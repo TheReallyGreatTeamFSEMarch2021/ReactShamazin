@@ -1,12 +1,13 @@
 .review{
     clear: both;
-    padding-top: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     display: block;
     overflow: auto;
 }
 
 .review_titleSection{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .review_starRating{

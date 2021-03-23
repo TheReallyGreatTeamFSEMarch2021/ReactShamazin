@@ -16,7 +16,6 @@ class ReviewComponent extends React.Component {
         if(prevProps.itemFamilyID !== this.props.itemFamilyID){
             ReviewService.getReviewsByItemFamily(this.props.itemFamilyID)
                 .then(response => {
-                    console.log(response.data);
                     this.setState({reviews: response.data})
             });
         }
