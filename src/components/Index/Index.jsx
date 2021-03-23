@@ -18,15 +18,17 @@ class Index extends React.Component{
     }
 
     render(){
-        const allItems = this.state.items.map(item => {
-            return(
-                <div>
-                    <Link to={`/items/${item.id}`}>
-                        {item.name}
-                    </Link>
-                </div>
-            )
-        })
+        const allItems = this.state.items.length>0 ? this.state.items.map(item => {
+                return(
+                    <div>
+                        <Link to={`/items/${item.id}`}>
+                            {item.name}
+                        </Link>
+                    </div>
+                )
+            })
+        : <div>No items</div>;
+        
 
         return(
             <div>
