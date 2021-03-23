@@ -25,7 +25,7 @@ class ReviewComponent extends React.Component {
         const reviewList = this.state.reviews.map(review =>{
 
             return(
-                <div class="review">
+                <div key={review.id} class="review">
                     
                     <div class="review_titleSection">
                         <div class="review_starRating">

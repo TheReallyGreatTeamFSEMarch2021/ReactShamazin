@@ -29,8 +29,8 @@ class ProductPhotos extends React.Component {
 
     render() {
         const photosList = this.state.productPhotos.map(productPhoto => {
-            return (
-                <img className="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
+            return(
+                <img key={productPhoto.id} className="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
             );
         });
 
