@@ -9,6 +9,7 @@ import * as ShamazinStyled from './StyledShamazin';
 import {getInfosByItemId} from '../../service/infoService';
 import TitleComponent from '../Title/titleComponent';
 import QuestionComponent from "../Question/Question";
+import AllReviewPhotos from '../Review/allReviewPhotos';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -80,6 +81,9 @@ class Shamazin extends React.Component{
                     <div className="row col-reviews">
                         <div className="row col-12">
                             <h1>All Customer Images Component</h1>
+                            <AllReviewPhotos
+                                itemFamilyID={this.state.itemFamilyID}
+                            />
                             <ReviewComponent 
                                 itemFamilyID={this.state.itemFamilyID}
                             />
