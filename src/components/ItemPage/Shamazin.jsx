@@ -5,6 +5,7 @@ import TestChildComponent from "../TestChild/TestChild";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
+import {getInfosByItemId} from '../../service/infoService';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -15,7 +16,8 @@ class Shamazin extends React.Component{
             photoURL: "initial",
             photosForItem: [],
             itemID: props.match.params.itemID,
-            item: {}
+            item: {},
+            infos: [],
         }
         
     }
@@ -25,6 +27,10 @@ class Shamazin extends React.Component{
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
                 this.setState({item:response.data})
+                getInfosByItemId(this.state.itemID).then(response=> {
+                    this.setState({infos:response.data})
+                })
+
             })
     }
 
