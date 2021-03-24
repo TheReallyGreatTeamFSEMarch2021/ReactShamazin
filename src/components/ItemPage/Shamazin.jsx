@@ -34,7 +34,6 @@ class Shamazin extends React.Component{
                         item: i
                     })
                 }
-                else console.log("haha");
             }
         }
     }
