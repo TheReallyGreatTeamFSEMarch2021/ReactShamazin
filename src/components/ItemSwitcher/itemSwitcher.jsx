@@ -1,5 +1,8 @@
 import React from 'react';
+import { Router } from 'react-router';
+import App from '../../App';
 import ShamazinService from '../../service/shamazinService';
+import {Link} from "react-router-dom"
 
 class ItemSwitcherComponent extends React.Component {
     constructor(props) {
@@ -22,15 +25,14 @@ class ItemSwitcherComponent extends React.Component {
                 });
         }
     }
-    update(itemId) {
-        this.props.handler(itemId); 
-        console.log(itemId);
+    update() {
+        this.props.handler();
     }
 
     render() {
         const itemsList = this.state.items.map(item=>{
             return(
-                <div className="col-6" key={item.id} onClick={()=>this.update(item.id)}>{item.name}</div>
+                <Link key={item.id} to={`/items/${item.id}`}><div className="col-6" onClick={()=>this.update()}>{item.name}</div></Link>
             );
         });
         return(

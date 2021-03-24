@@ -24,12 +24,12 @@ class Shamazin extends React.Component{
         
     }
 
-    handler = (val) => {
-        ShamazinService.getItemById(val)
+    handler = () => {
+        ShamazinService.getItemById(this.props.match.params.itemID)
             .then(response=>{
                 this.setState({
                     item: response.data,
-                    itemID: val
+                    itemID: response.data.id
                 })
             }).then(this.render());
     }
@@ -46,7 +46,6 @@ class Shamazin extends React.Component{
             });
         
     }
-
     
     
     render(){

@@ -23,17 +23,20 @@ class ProductPhotos extends React.Component {
             });
     }
 
-    componentDidUpdate() {
-        ProductPhotoService.getProductPhotosByItemID(this.props.itemID) //this.state.itemID
-            .then(response => {
-                this.setState({
-                    productPhotos: response.data,
-                    itemID: this.props.itemID
-                });
-                if(response.data.length>0){
-                    this.setState({mainPhotoURL: response.data[0].photoURL});
-                }
-            });
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.itemID !== this.props.itemID){
+            ProductPhotoService.getProductPhotosByItemID(this.props.itemID)
+                .then(response=>{
+                    this.setState({
+                        productPhotos: response.data,
+                    })
+                    if(response.data.length>0) {
+                        this.setState({
+                            mainPhotoURL: response.data[0].photoURL
+                        })
+                    }
+                })
+        }
     }
 
     changeMainPicture(photoUrl) {
