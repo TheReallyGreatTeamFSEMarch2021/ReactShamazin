@@ -23,6 +23,7 @@ class ItemSwitcherComponent extends React.Component {
         }
     }
     update(itemId) {
+        this.props.handler(itemId); 
         console.log(itemId);
     }
 
