@@ -25,14 +25,11 @@ class ItemSwitcherComponent extends React.Component {
                 });
         }
     }
-    update() {
-        this.props.handler();
-    }
 
     render() {
         const itemsList = this.state.items.map(item=>{
             return(
-                <Link key={item.id} to={`/items/${item.id}`}><div className="col-6" onClick={()=>this.update()}>{item.name}</div></Link>
+                <Link key={item.id} to={`/items/${item.id}`}><div className="col-6">{item.name}</div></Link>
             );
         });
         return(

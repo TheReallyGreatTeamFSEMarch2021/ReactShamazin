@@ -35,16 +35,6 @@ class Shamazin extends React.Component{
                 })
         }
     }
-
-    handler = () => {
-        ShamazinService.getItemById(this.props.match.params.itemID)
-            .then(response=>{
-                this.setState({
-                    item: response.data,
-                    itemID: response.data.id
-                })
-            }).then(this.render());
-    }
     
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
@@ -81,7 +71,7 @@ class Shamazin extends React.Component{
                     </div>
                 </div>
                 <ItemSwitcherComponent
-                    itemFamilyID={this.state.itemFamilyID} handler={this.handler}
+                    itemFamilyID={this.state.itemFamilyID}
                 />
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
