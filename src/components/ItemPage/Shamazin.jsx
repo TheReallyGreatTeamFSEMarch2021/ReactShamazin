@@ -19,6 +19,7 @@ class Shamazin extends React.Component{
             photosForItem: [],
             itemID: props.match.params.itemID,
             item: {},
+            items: [],
             itemFamilyID : 0
         }
         
@@ -26,13 +27,15 @@ class Shamazin extends React.Component{
 
     componentDidUpdate(prevProps,prevState) {
         if(prevProps.match.params.itemID!==this.props.match.params.itemID) {
-            ShamazinService.getItemById(this.props.match.params.itemID)
-                .then(response=>{
+            for(let i of this.state.items) {
+                if(i.id == this.props.match.params.itemID) {
                     this.setState({
                         itemID: this.props.match.params.itemID,
-                        item: response.data
+                        item: i
                     })
-                })
+                }
+                else console.log("haha");
+            }
         }
     }
     
@@ -45,7 +48,14 @@ class Shamazin extends React.Component{
         ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
                 this.setState({itemFamilyID: response.data});
-            });
+                ShamazinService.getFamilyItems(response.data)
+                    .then(resp=> {
+                        this.setState({
+                            items: resp.data
+                        })
+                        console.log(resp.data);
+                    })
+            })
         
     }
     
