@@ -14,6 +14,7 @@ class ReviewComponent extends React.Component {
     
     componentDidUpdate(prevProps, prevState){
         if(prevProps.itemFamilyID !== this.props.itemFamilyID){
+            console.log("in update")
             ReviewService.getReviewsByItemFamily(this.props.itemFamilyID)
                 .then(response => {
                     this.setState({reviews: response.data})
@@ -22,13 +23,22 @@ class ReviewComponent extends React.Component {
     }
 
     render(){
+        
         const reviewList = this.state.reviews.map(review =>{
+            
+           // const reviewPhotos = review.
+            const reviewPhotos = review.reviewPhotos.map(photo => {
+                return(
+                <div class="photoContainerMini">
+                    <img class="reviewPhotoMini" src={photo.photoURL}/>
+                </div>
+                );
+            });
 
             return(
-                <div key={review.id} className="review">
-                    
-                    <div className="review_titleSection">
-                        <div className="review_starRating">
+                <div class="review">
+                    <div class="review_titleSection">
+                        <div class="review_starRating">
                             {review.starValue}/5
                         </div>
                         <div className="review_title">
@@ -42,6 +52,10 @@ class ReviewComponent extends React.Component {
                     <div className="review_score">
                         {review.score} people found this helpful
                     </div>
+                    <div class="review_miniPhotos col-8">
+                        {reviewPhotos}
+                    </div>
+                    
                 </div>
             );
 

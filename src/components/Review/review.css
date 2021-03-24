@@ -53,3 +53,23 @@
     max-height: 100%;
     object-fit:cover;
 }
+
+.review_miniPhotos{
+    clear: both;
+}
+
+.photoContainerMini{
+    float: left;
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+    
+}
+
+.reviewPhotoMini{
+    width: 75px;
+    height: 75px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:cover;
+}

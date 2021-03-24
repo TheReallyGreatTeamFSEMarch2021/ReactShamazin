@@ -78,15 +78,9 @@ class Shamazin extends React.Component{
                         Customer Reviews
                         <h1>Ratings Statistics Table Component</h1>
                     </div>
-<<<<<<< HEAD
-                    <div className="row col-reviews">
-                        <div className="row col-12">
-                            <h1>All Customer Images Component</h1>
-=======
                     <div class="row col-reviews">
                         <div class="row col-12">
                             <h2>Customer images</h2>
->>>>>>> f4b8cef (changed heading to images section)
                             <AllReviewPhotos
                                 itemFamilyID={this.state.itemFamilyID}
                             />
