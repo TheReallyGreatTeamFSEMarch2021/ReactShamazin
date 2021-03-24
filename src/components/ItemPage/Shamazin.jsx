@@ -8,6 +8,7 @@ import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
 import {getInfosByItemId} from '../../service/infoService';
 import TitleComponent from '../Title/titleComponent';
+import QuestionComponent from "../Question/Question";
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -24,7 +25,6 @@ class Shamazin extends React.Component{
         }
         
     }
-
     
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
@@ -34,7 +34,7 @@ class Shamazin extends React.Component{
         getInfosByItemId(this.state.itemID)
             .then(response=> {
                 this.setState({infos:response.data})
-        });
+        });  
         ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
                 this.setState({itemFamilyID: response.data})
@@ -68,6 +68,9 @@ class Shamazin extends React.Component{
                 </div>
                 <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
+                    <QuestionComponent
+                        itemFamilyID={this.state.itemFamilyID}
+                        />
                 </div>
                 <div className="row col-12">
                     <div className="row col-ratingstats">
