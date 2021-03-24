@@ -24,6 +24,18 @@ class Shamazin extends React.Component{
         
     }
 
+    componentDidUpdate(prevProps,prevState) {
+        if(prevProps.match.params.itemID!==this.props.match.params.itemID) {
+            ShamazinService.getItemById(this.props.match.params.itemID)
+                .then(response=>{
+                    this.setState({
+                        itemID: this.props.match.params.itemID,
+                        item: response.data
+                    })
+                })
+        }
+    }
+
     handler = () => {
         ShamazinService.getItemById(this.props.match.params.itemID)
             .then(response=>{
