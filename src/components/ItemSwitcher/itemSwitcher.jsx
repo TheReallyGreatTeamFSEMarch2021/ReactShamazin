@@ -6,7 +6,7 @@ class ItemSwitcherComponent extends React.Component {
         super(props);
         this.state={
             items: [],
-            itemFamilyId: props.itemFamilyId
+            itemFamilyId: props.itemFamilyID
         }
     }
 
@@ -14,19 +14,22 @@ class ItemSwitcherComponent extends React.Component {
 
     }
 
-    componendDidUpdate(prevProps,prevState) {
-        if(prevProps.itemFamilyId !== this.props.itemFamilyId) {
-            ShamazinService.getFamilyItems(this.props.itemFamilyId)
+    componentDidUpdate(prevProps,prevState) {
+        if(prevProps.itemFamilyID !== this.props.itemFamilyID) {
+            ShamazinService.getFamilyItems(this.props.itemFamilyID)
                 .then(response=> {
                     this.setState({items: response.data});
                 });
         }
     }
+    update(itemId) {
+        console.log(itemId);
+    }
 
     render() {
         const itemsList = this.state.items.map(item=>{
             return(
-                <div key={item.id}>{item.name}</div>
+                <div className="col-6" key={item.id} onClick={()=>this.update(item.id)}>{item.name}</div>
             );
         });
         return(

@@ -61,7 +61,7 @@ class Shamazin extends React.Component{
                     </div>
                 </div>
                 <ItemSwitcherComponent
-                    itemFamilyId={this.state.itemFamilyID}
+                    itemFamilyID={this.state.itemFamilyID}
                 />
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
