@@ -34,7 +34,7 @@ class AllReviewPhotos extends React.Component {
 
         return(
             <div>
-                <h3>Customer images</h3>
+                <h3 class="customerImages">Customer images</h3>
                 {reviewPhotos}
             </div>
         )

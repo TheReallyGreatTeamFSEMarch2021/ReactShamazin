@@ -49,11 +49,16 @@ class ReviewComponent extends React.Component {
                     <div className="review_content col-9">
                         <span>{review.content}</span>
                     </div>
+                    
+                    <div class="review_miniPhotos col-8">
+                        {reviewPhotos}
+                    </div>
+                    
                     <div className="review_score">
                         {review.score} people found this helpful
                     </div>
-                    <div class="review_miniPhotos col-8">
-                        {reviewPhotos}
+                    <div class="buttons">
+                        <button class="helpful">Helpful</button>
                     </div>
                     
                 </div>
