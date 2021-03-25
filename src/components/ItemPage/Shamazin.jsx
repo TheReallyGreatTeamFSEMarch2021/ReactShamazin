@@ -10,6 +10,7 @@ import {getInfosByItemId} from '../../service/infoService';
 import TitleComponent from '../Title/titleComponent';
 import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 import QuestionComponent from "../Question/Question";
+import AllReviewPhotos from '../Review/allReviewPhotos';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -101,9 +102,11 @@ class Shamazin extends React.Component{
                         Customer Reviews
                         <h1>Ratings Statistics Table Component</h1>
                     </div>
-                    <div className="row col-reviews">
-                        <div className="row col-12">
-                            <h1>All Customer Images Component</h1>
+                    <div class="row col-reviews">
+                        <div class="row col-12">
+                            <AllReviewPhotos
+                                itemFamilyID={this.state.itemFamilyID}
+                            />
                             <ReviewComponent 
                                 itemFamilyID={this.state.itemFamilyID}
                             />
