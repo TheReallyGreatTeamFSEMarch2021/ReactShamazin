@@ -1,7 +1,8 @@
 import React from 'react';
 import ReviewService from "../../service/reviewService";
 import "./review.css";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 class ReviewComponent extends React.Component {
     constructor(props){
@@ -30,16 +31,25 @@ class ReviewComponent extends React.Component {
             const reviewPhotos = review.reviewPhotos.map(photo => {
                 return(
                 <div class="photoContainerMini">
-                    <img class="reviewPhotoMini" src={photo.photoURL}/>
+                    <img class="reviewPhotoMini" src={photo.photoURL} alt=""/>
                 </div>
                 );
             });
+
+            const starRating = review.starValue;
 
             return(
                 <div class="review">
                     <div class="review_titleSection col-7">
                         <div class="review_starRating">
-                            {review.starValue}/5
+                            {starRating > 4 &&
+                                <div>
+                                    <div class="starContainer">
+                                        <img class="starPhoto" src='https://shamazin.s3.amazonaws.com/singleStar.png' alt=""/>
+                                    </div>
+                                </div>
+                            }
+                            
                         </div>
                         <div className="review_title">
                             {review.title}
