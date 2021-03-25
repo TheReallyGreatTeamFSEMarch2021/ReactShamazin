@@ -25,21 +25,21 @@ class ReviewComponent extends React.Component {
         const reviewList = this.state.reviews.map(review =>{
 
             return(
-                <div class="review">
+                <div key={review.id} className="review">
                     
-                    <div class="review_titleSection">
-                        <div class="review_starRating">
+                    <div className="review_titleSection">
+                        <div className="review_starRating">
                             {review.starValue}/5
                         </div>
-                        <div class="review_title">
+                        <div className="review_title">
                             {review.title}
                         </div>
                     </div>
 
-                    <div class="review_content col-9">
+                    <div className="review_content col-9">
                         <span>{review.content}</span>
                     </div>
-                    <div class="review_score">
+                    <div className="review_score">
                         {review.score} people found this helpful
                     </div>
                 </div>
@@ -49,8 +49,8 @@ class ReviewComponent extends React.Component {
 
 
         return(
-            <div class="col-12">
-                <h3 class="productReviews">Product Reviews</h3>
+            <div className="col-12">
+                <h3 className="productReviews">Product Reviews</h3>
                 {reviewList}
             </div>
         );

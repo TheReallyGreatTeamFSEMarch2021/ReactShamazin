@@ -6,8 +6,10 @@ import ReviewComponent from "../Review/reviewComponent";
 import './Shamazin.css';
 import styled, {css} from 'styled-components';
 import * as ShamazinStyled from './StyledShamazin';
+import {getInfosByItemId} from '../../service/infoService';
 import TitleComponent from '../Title/titleComponent';
 import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
+import QuestionComponent from "../Question/Question";
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -20,6 +22,7 @@ class Shamazin extends React.Component{
             itemID: props.match.params.itemID,
             item: {},
             items: [],
+            infos: [],
             itemFamilyID : 0
         }
         
@@ -41,9 +44,12 @@ class Shamazin extends React.Component{
     componentDidMount(){
         ShamazinService.getItemById(this.state.itemID)
             .then(response=>{
-                this.setState({item:response.data});
-            });
-            
+                this.setState({item:response.data})
+        });
+        getInfosByItemId(this.state.itemID)
+            .then(response=> {
+                this.setState({infos:response.data})
+        });  
         ShamazinService.getFamilyId(this.state.itemID)
             .then( response=>{
                 this.setState({itemFamilyID: response.data});
@@ -54,20 +60,19 @@ class Shamazin extends React.Component{
                         })
                         console.log(resp.data);
                     })
-            })
-        
+            });
     }
     
     
     render(){
         return(
-            <div class="itemPageContainer">
-                <div class="row navBar col-12">
-                    <h1 class="col-12">Navbar</h1>
+            <div className="itemPageContainer">
+                <div className="row navBar col-12">
+                    <h1 className="col-12">Navbar</h1>
 
                 </div>
-                <div class="row col-12">
-                    <div class='col-4'>
+                <div className="row col-12">
+                    <div className='col-4'>
                         <ProductPhotosComponent
                             itemID={this.state.itemID}
                         />
@@ -85,16 +90,19 @@ class Shamazin extends React.Component{
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
                 </div>
-                <div class="row col-12">
+                <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
+                    <QuestionComponent
+                        itemFamilyID={this.state.itemFamilyID}
+                        />
                 </div>
-                <div class="row col-12">
-                    <div class="row col-ratingstats">
+                <div className="row col-12">
+                    <div className="row col-ratingstats">
                         Customer Reviews
                         <h1>Ratings Statistics Table Component</h1>
                     </div>
-                    <div class="row col-reviews">
-                        <div class="row col-12">
+                    <div className="row col-reviews">
+                        <div className="row col-12">
                             <h1>All Customer Images Component</h1>
                             <ReviewComponent 
                                 itemFamilyID={this.state.itemFamilyID}
@@ -103,7 +111,7 @@ class Shamazin extends React.Component{
                     </div>
 
                 </div>
-                <div class="row col-12">
+                <div className="row col-12">
                     <TestChildComponent
                         passedProp={this.state.title}
                     />
