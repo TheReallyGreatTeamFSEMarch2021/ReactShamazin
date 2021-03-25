@@ -14,11 +14,9 @@ class AllReviewPhotos extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if(prevProps.itemFamilyID !== this.props.itemFamilyID){
-            console.log(this.props.itemFamilyID);
             ReviewService.getPhotosByItemFamily(this.props.itemFamilyID)
                 .then(response => {
                     this.setState({photos: response.data})
-                    console.log(this.state.photos)
                 })
         }
     }
