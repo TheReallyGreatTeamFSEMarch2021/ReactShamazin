@@ -1,10 +1,7 @@
 .navBar {
-	
 	background-color: rgb(19, 25, 33);
 	color: rgb(153, 153, 153);
-	width: 100vw;
 	width: 100%;
-    position: absolute;
 	overflow: hidden;
 }
 
@@ -34,4 +31,3 @@ li a:hover {
 	background-color: #111;
 	color: white;
 }
-
