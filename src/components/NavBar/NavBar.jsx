@@ -8,21 +8,22 @@ class NavBar extends Component {
     }
     
     componentDidMount(){
-        // Need to find another place to have this at
-        const Nav = styled.div`
-        width: 100vw;
-        background-color: rgb(19,25,33);
-        display: inline-block;
-        `
-        const Logo = styled.img`
-            height: 50px;
-            display: inline-block;
-        `
-        const navItem = styled.a`
-            display: inline-block;
-        `
+       
     }
     render(){
+         // Need to find another place to have this at
+         const Nav = styled.div`
+         width: 100vw;
+         background-color: rgb(19,25,33);
+         display: inline-block;
+         `
+         const Logo = styled.img`
+             height: 50px;
+             display: inline-block;
+         `
+         const navItem = styled.a`
+             display: inline-block;
+         `
         return(<div>
             <Nav>
                 <Logo src={navLogo}/>
