@@ -11,16 +11,27 @@ class RelatedBoughtItemsComponent extends React.Component {
             id: props.itemID,
             page: 1,
             relatedItems: [],
+            totalNumOfRelatedItems: 0,
+            totalNumOfPages: 0,
         };
+        
+        this.displayNextPage = this.displayNextPage.bind(this);
+        this.displayPreviousPage = this.displayPreviousPage.bind(this);
     }
 
     componentDidMount() {
-        const { id, page } = this.state;
+        const { id } = this.state;
 
-        relatedBoughtItemService.getRelatedBoughtItemsByPage(id, page)
+        relatedBoughtItemService.getAllRelatedBoughtItems(id)
             .then(response => {
+                const totalNumOfRelatedItems = response.data.length;
+                const relatedItems = totalNumOfRelatedItems <= 7 ? response.data : response.data.slice(0, 7);
+                const totalNumOfPages = Math.ceil(totalNumOfRelatedItems / 7);
+
                 this.setState({
-                    relatedItems: response.data,
+                    totalNumOfRelatedItems,
+                    relatedItems,
+                    totalNumOfPages,
                 });
             });
     }
@@ -29,18 +40,50 @@ class RelatedBoughtItemsComponent extends React.Component {
         const { relatedItems } = this.state;
 
         return relatedItems.map(item => {
-            return <RelatedItemDisplayComponent item={item} />
+            return <RelatedItemDisplayComponent 
+                item={item}
+            />
         });
     }
 
+    displayNextPage() {
+        const { id, page, totalNumOfPages } = this.state;
+        const nextPage = page >= totalNumOfPages ? 1 : page + 1;
 
+        relatedBoughtItemService.getRelatedBoughtItemsByPage(id, nextPage)
+            .then(response => {
+                const relatedItems = response.data;
+                const page = nextPage;
+                
+                this.setState({
+                    relatedItems,
+                    page,
+                }); 
+            });
+    }
+
+    displayPreviousPage() {
+        const { id, page, totalNumOfPages } = this.state;
+        const previousPage = page <= 1 ? totalNumOfPages : page - 1;
+
+        relatedBoughtItemService.getRelatedBoughtItemsByPage(id, previousPage)
+            .then(response => {
+                const relatedItems = response.data;
+                const page = previousPage;
+
+                this.setState({
+                    relatedItems,
+                    page,
+                });
+            });
+    }
 
     render() {
         return (
-            <div class="RelatedBoughtItems">
-                <div>Back Arrow</div>
+            <div className="RelatedBoughtItems">
+                <div onClick={this.displayPreviousPage}>Back Arrow</div>
                 {this.displayRelatedItems()}
-                <div>Forward Arrow</div>
+                <div onClick={this.displayNextPage}>Forward Arrow</div>
             </div>
         )
     }
