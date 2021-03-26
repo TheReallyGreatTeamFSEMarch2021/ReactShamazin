@@ -15,42 +15,55 @@ display: inline-block;
 white-space: nowrap;
 `
 const Logo = styled.img`
- height: 50px;
- text-decoration: none;
- color: white;
-`
-const cartNumber = styled.h1`
+    height: 50px;
     text-decoration: none;
-`
-const cartLogo = styled.img`
- height: 50px;
-`
-
-
+    color: white;
+`;
+const CartNumber = styled.p`
+    font-size: 1.5em;
+    color: rgb(240,136,4);
+    display: inline-block
+`;
+const CartLogo = styled.img`
+    height: 25px;
+`;
+const AddressLabel = styled.p`
+    font-size: 1em;
+    color: #999;
+    display: inline-block
+`;
 class NavBar extends Component {
     state={
         // PlaceHolders
         isUserAuth: true,
-        address: "123 Fake St.",
-        numberOfItemsInCart: 0
+        address: "Nashville, TN",
+        numberOfItemsInCart: 0,
+        userName: "Jack Daniels"
     }
-    
+    constructor(props){
+        super(props)
+        this.inputRef = React.createRef();
+    }
     componentDidMount(){
        // Get State from Parent component
+    }
+    addressHandler = ()=> {
+        alert("This has not been implemented yet.")
     }
     render(){
          
         return(<div>
             <Nav>
                 <Link to="/"><Logo src={navLogo}/></Link>
-                {this.state.isUserAuth ? <Link><Address address={this.state.address}/></Link>: <Link>Not Signed In</Link>}
-                {
-                // This should be a model?
-                }
+                {this.state.isUserAuth ? <Address address={this.state.address} name={this.state.userName}/>: <AddressLabel onClick="this.addressHandler()">Please select your address</AddressLabel>}
                 <Searchbar/>
-                <Language/>
-                {this.state.isUserAuth ? <Link to="/account">Go to your account</Link>: <Link to="/register"><SignIn/></Link>}
-                <Link to="/cart"><Logo src={cart}/><cartNumber>{this.state.numberOfItemsInCart}</cartNumber></Link>
+                <select>
+                    <option>🇺🇸</option>
+                    <option>🇬🇧</option>
+                    <option>🇷🇺</option>
+                </select>
+                {this.state.isUserAuth ? <Link to="/account">Go to your account</Link>: <Link to="/account">Hello, Sign in Account & Lists</Link>}
+                <Link to="/cart"><CartLogo src={cart}/><CartNumber>{this.state.numberOfItemsInCart}</CartNumber></Link>
                 
             </Nav>
         </div>)

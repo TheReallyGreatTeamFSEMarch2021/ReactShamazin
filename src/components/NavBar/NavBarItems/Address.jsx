@@ -1,20 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+
+const AddressLabel = styled.h1`
+    color: rgb(142,143,143);
+    font-size: 15px;
+`;
+const Wrapper = styled.div`
+        display: inline-block;
 `;
 function Address(props){
-    const wrapper = styled.div`
-        display: inline-block;
-    `
-    const label = styled.p`
-          color: white;
-
-    `
-    return (<wrapper>
-        <label>Shipping/Delivering at: {props.address}</label>
-    </wrapper>)
+    
+    return (<Wrapper>
+        <AddressLabel> 📍Delivering to {props.name} <br/> {props.address}</AddressLabel>
+    </Wrapper>)
 }
 export default Address;
