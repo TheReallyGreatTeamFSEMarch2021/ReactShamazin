@@ -25,7 +25,7 @@ class AllReviewPhotos extends React.Component {
         const reviewPhotos = this.state.photos.map(photo => {
             return(
                 <div class="photoContainer">
-                    <img class="reviewPhoto" src={photo.photoURL}/>
+                    <img class="reviewPhoto" src={photo.photoURL} alt=""/>
                 </div>
             )
         });

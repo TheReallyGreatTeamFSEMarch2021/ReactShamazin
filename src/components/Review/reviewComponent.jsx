@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewService from "../../service/reviewService";
 import "./review.css";
+import StarRating from "../ReviewStarRating/starRating";
 import { Link } from "react-router-dom";
 
 
@@ -36,19 +37,13 @@ class ReviewComponent extends React.Component {
                 );
             });
 
-            const starRating = review.starValue;
-
             return(
                 <div class="review">
                     <div class="review_titleSection col-7">
                         <div class="review_starRating">
-                            {starRating > 4 &&
-                                <div>
-                                    <div class="starContainer">
-                                        <img class="starPhoto" src='https://shamazin.s3.amazonaws.com/singleStar.png' alt=""/>
-                                    </div>
-                                </div>
-                            }
+                            <StarRating
+                                starRating={review.starValue}
+                            />
                             
                         </div>
                         <div className="review_title">
