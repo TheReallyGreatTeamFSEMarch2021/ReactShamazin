@@ -28,7 +28,7 @@ class TitleComponent extends React.Component {
             <div className="col-itemInfo">
                 <div className="row col-12">
                     <h1>{this.props.item.name}</h1>
-                    <StarRating starRating={this.props.rating}/>
+                    <StarRating starRating={this.state.rating}/>
                     <h3>Rating: {this.props.rating} out of 5 stars</h3>
                     <h3>Includes Num answered questions</h3>
                 </div>
