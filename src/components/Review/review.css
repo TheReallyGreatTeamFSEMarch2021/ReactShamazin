@@ -117,3 +117,14 @@
 .report:hover{
     cursor: pointer;
 }
+
+
+.starContainer{
+    width: 20px;
+    height: 20px;   
+}
+
+.starPhoto{
+    width: 20px;
+    height: 20px;
+}

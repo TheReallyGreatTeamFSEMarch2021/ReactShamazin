@@ -1,7 +1,9 @@
 import React from 'react';
 import ReviewService from "../../service/reviewService";
 import "./review.css";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import StarRating from "../ReviewStarRating/starRating";
+import { Link } from "react-router-dom";
+
 
 class ReviewComponent extends React.Component {
     constructor(props){
@@ -29,17 +31,20 @@ class ReviewComponent extends React.Component {
            // const reviewPhotos = review.
             const reviewPhotos = review.reviewPhotos.map(photo => {
                 return(
-                <div class="photoContainerMini">
-                    <img class="reviewPhotoMini" src={photo.photoURL}/>
+                <div className="photoContainerMini">
+                    <img className="reviewPhotoMini" src={photo.photoURL} alt=""/>
                 </div>
                 );
             });
 
             return(
-                <div class="review">
-                    <div class="review_titleSection col-7">
-                        <div class="review_starRating">
-                            {review.starValue}/5
+                <div className="review">
+                    <div className="review_titleSection col-7">
+                        <div className="review_starRating">
+                            <StarRating
+                                starRating={review.starValue}
+                            />
+                            
                         </div>
                         <div className="review_title">
                             {review.title}
@@ -50,18 +55,18 @@ class ReviewComponent extends React.Component {
                         <span>{review.content}</span>
                     </div>
                     
-                    <div class="review_miniPhotos col-8">
+                    <div className="review_miniPhotos col-8">
                         {reviewPhotos}
                     </div>
                     
                     <div className="review_score">
                         {review.score} people found this helpful
                     </div>
-                    <div class="buttons">
+                    <div className="buttons">
                         <Link to="/Login">
-                        <button class="helpful">Helpful</button>
+                        <button className="helpful">Helpful</button>
                         </Link>
-                        <Link class="report" to="/Login"> Report Abuse </Link>
+                        <Link className="report" to="/Login"> Report Abuse </Link>
                     </div>
                     
                 </div>
