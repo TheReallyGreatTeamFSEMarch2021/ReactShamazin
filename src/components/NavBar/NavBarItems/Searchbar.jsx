@@ -4,7 +4,7 @@ const Wrapper = styled.div`
     display: inline-block;
 `;
 const InputBar = styled("input")`
-    width: 70%;
+    width: 50vw;
     position: center;
     display: inline-block;
     height: 40px;
