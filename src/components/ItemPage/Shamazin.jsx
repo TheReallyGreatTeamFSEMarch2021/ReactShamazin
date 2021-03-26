@@ -24,7 +24,7 @@ class Shamazin extends React.Component{
             item: {},
             items: [],
             infos: [],
-            itemFamilyID : 0
+            itemFamily: {}
         }
         
     }
@@ -51,16 +51,14 @@ class Shamazin extends React.Component{
             .then(response=> {
                 this.setState({infos:response.data})
         });  
-        ShamazinService.getFamilyId(this.state.itemID)
+        ShamazinService.getFamilyByItemId(this.state.itemID)
             .then( response=>{
-                this.setState({itemFamilyID: response.data});
-                ShamazinService.getFamilyItems(response.data)
-                    .then(resp=> {
-                        this.setState({
-                            items: resp.data
-                        })
-                        console.log(resp.data);
-                    })
+                this.setState({
+                    itemFamily: response.data,
+                    items: response.data.items
+                });
+                console.log(response.data);
+                
             });
     }
     
@@ -86,7 +84,7 @@ class Shamazin extends React.Component{
                     </div>
                 </div>
                 <ItemSwitcherComponent
-                    itemFamilyID={this.state.itemFamilyID}
+                    itemFamilyID={this.state.itemFamily.id}
                 />
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
@@ -94,7 +92,7 @@ class Shamazin extends React.Component{
                 <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
                     <QuestionComponent
-                        itemFamilyID={this.state.itemFamilyID}
+                        itemFamilyID={this.state.itemFamily.id}
                         />
                 </div>
                 <div className="row col-12">
@@ -105,10 +103,10 @@ class Shamazin extends React.Component{
                     <div class="row col-reviews">
                         <div class="row col-12">
                             <AllReviewPhotos
-                                itemFamilyID={this.state.itemFamilyID}
+                                itemFamilyID={this.state.itemFamily.id}
                             />
                             <ReviewComponent 
-                                itemFamilyID={this.state.itemFamilyID}
+                                itemFamilyID={this.state.itemFamily.id}
                             />
                         </div>
                     </div>
