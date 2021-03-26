@@ -9,10 +9,10 @@ import SignIn from './NavBarItems/SignIn';
 import cart from '../../assets/cart.png'
 // Need to find another place to have this at
 const Nav = styled.div`
-width: 100vw;
-background-color: rgb(19,25,33);
-display: inline-block;
-white-space: nowrap;
+    width: 100vw;
+    background-color: rgb(19,25,33);
+    display: inline-block;
+    white-space: nowrap;
 `
 const Logo = styled.img`
     height: 50px;
@@ -27,15 +27,10 @@ const CartNumber = styled.p`
 const CartLogo = styled.img`
     height: 25px;
 `;
-const AddressLabel = styled.p`
-    font-size: 1em;
-    color: #999;
-    display: inline-block
-`;
 class NavBar extends Component {
     state={
         // PlaceHolders
-        isUserAuth: true,
+        isUserAuth: false,
         address: "Nashville, TN",
         numberOfItemsInCart: 0,
         userName: "Jack Daniels"
@@ -55,7 +50,7 @@ class NavBar extends Component {
         return(<div>
             <Nav>
                 <Link to="/"><Logo src={navLogo}/></Link>
-                {this.state.isUserAuth ? <Address address={this.state.address} name={this.state.userName}/>: <AddressLabel onClick="this.addressHandler()">Please select your address</AddressLabel>}
+                <Address loggedIn= {this.state.isUserAuth} address={this.state.address} name={this.state.userName}/>
                 <Searchbar/>
                 <select>
                     <option>🇺🇸</option>

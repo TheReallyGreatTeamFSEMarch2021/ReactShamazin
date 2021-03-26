@@ -6,8 +6,17 @@ const Wrapper = styled.div`
 const InputBar = styled("input")`
     width: 70%;
     position: center;
+    display: inline-block;
+    height: 40px;
+    border-radius: 10px;
 `;
+const SearchButton = styled.button`
+    
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
 
+`;
 
 class Searchbar extends Component{
  state = {
@@ -24,7 +33,7 @@ this.setState({userInput: e.target.value})
 }
 render(){
     return (<wrapper>
-        <InputBar  onChange={this.handleChange}placeholder="Search for product"/><button value = {this.state.userInput} onClick={this.searchHandler}>🔍</button>
+        <InputBar  onChange={this.handleChange}placeholder="Search for product"/><SearchButton value = {this.state.userInput} onClick={this.searchHandler}>🔍</SearchButton>
     </wrapper>)
 }
     
