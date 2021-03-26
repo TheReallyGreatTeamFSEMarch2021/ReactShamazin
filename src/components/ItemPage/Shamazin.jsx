@@ -11,6 +11,7 @@ import TitleComponent from '../Title/titleComponent';
 import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 import QuestionComponent from "../Question/Question";
 import AllReviewPhotos from '../Review/allReviewPhotos';
+import RatingStats from '../RatingStats/ratingStats';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -97,8 +98,9 @@ class Shamazin extends React.Component{
                 </div>
                 <div className="row col-12">
                     <div className="row col-ratingstats">
-                        Customer Reviews
-                        <h1>Ratings Statistics Table Component</h1>
+                        <RatingStats
+                            itemFamilyID={this.state.itemFamily.id} 
+                        />
                     </div>
                     <div class="row col-reviews">
                         <div class="row col-12">
