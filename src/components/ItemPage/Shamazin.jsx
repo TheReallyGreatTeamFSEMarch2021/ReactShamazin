@@ -24,7 +24,8 @@ class Shamazin extends React.Component{
             item: {},
             items: [],
             infos: [],
-            itemFamily: {}
+            itemFamily: {},
+            rating: 0
         }
         
     }
@@ -57,7 +58,13 @@ class Shamazin extends React.Component{
                     itemFamily: response.data,
                     items: response.data.items
                 });
-                console.log(response.data);
+                ShamazinService.getFamilyRating(response.data.id)
+                    .then(resp=>{
+                        this.setState({
+                            rating: resp.data
+                        });
+                        
+                    });
                 
             });
     }
@@ -77,7 +84,7 @@ class Shamazin extends React.Component{
                         />
                     </div>
                     <TitleComponent
-                        item={this.state.item}
+                        item={this.state.item} rating={this.state.rating}
                     />
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
