@@ -11,6 +11,7 @@ import TitleComponent from '../Title/titleComponent';
 import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 import QuestionComponent from "../Question/Question";
 import AllReviewPhotos from '../Review/allReviewPhotos';
+import InfosComponent from '../Infos/Infos';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -70,6 +71,7 @@ class Shamazin extends React.Component{
                     <h1 className="col-12">Navbar</h1>
 
                 </div>
+                <InfosComponent infos={this.state.infos}/>
                 <div className="row col-12">
                     <div className='col-4'>
                         <ProductPhotosComponent
