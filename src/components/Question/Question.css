@@ -1,0 +1,104 @@
+.voteBox{
+    width: 10%;
+    float: left;
+    border: 2px solid purple;
+    padding: 5px;
+
+}
+
+.qNaBox{
+    width: 80%;
+    float: left;
+    border: 2px solid pink;
+    padding: 20px; 
+}
+
+.question{
+    clear: both;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    display: block;
+    overflow: auto;
+}
+
+.floatChild{
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}
+
+.x{
+    color: blue;
+    padding: 2px;
+    text-align: center;
+    width: 50%;
+    margin: right;
+    overflow: auto;
+    border: none;
+}
+
+
+.upVoteBtn{
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;  
+    border-bottom: 15px solid black;
+    border-top: transparent;
+    margin: auto;
+}
+
+.upVoteBtn:hover{
+    border-bottom: 15px solid orange;
+}
+
+.downVoteBtn{
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid black;
+    border-bottom: transparent;
+    margin: auto;
+}
+
+.downVoteBtn:hover{
+    border-top: 15px solid orange;
+}
+
+#qNaTitle{
+    width: 15%;
+    border: 2px solid black;
+    margin: left;
+    display: inline-block;
+}
+
+#question{
+    border: 2px solid purple;
+    width: 50%;
+    margin: right;
+    display: inline-block;
+}
+
+.questionHorizontal{
+    border: none;
+}
+
+.answerHorizontal{
+    border: none;
+}
+
+#answerTitle{
+    width: 15%;
+    border: 2px solid black;
+    margin: left;
+    display: inline-block;
+}
+
+#answer{
+    border: 2px solid purple;
+    width: 50%;
+    margin: right;
+    display: inline-block;
+}

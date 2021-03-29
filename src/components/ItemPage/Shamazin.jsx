@@ -59,7 +59,7 @@ class Shamazin extends React.Component{
                         this.setState({
                             items: resp.data
                         })
-                        console.log(resp.data);
+                       // console.log(resp.data);
                     })
             });
     }
@@ -92,7 +92,7 @@ class Shamazin extends React.Component{
                     <h1>Related Items Component</h1>
                 </div>
                 <div className="row col-12">
-                    <h1>Customer Q's and A's Component</h1>
+                    <h1>Customer questions & answers</h1>
                     <QuestionComponent
                         itemFamilyID={this.state.itemFamilyID}
                         />
