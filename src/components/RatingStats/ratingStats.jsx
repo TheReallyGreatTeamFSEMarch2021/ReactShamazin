@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewService from '../../service/reviewService';
+import './ratingStats.scss'
 
 class RatingStats extends React.Component{
     constructor(props){
@@ -14,7 +15,6 @@ class RatingStats extends React.Component{
             oneStarCount:0
         }
 
-        this.calculateAvgRating = this.calculateAvgRating.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -26,56 +26,88 @@ class RatingStats extends React.Component{
         }
     }
 
-    calculateAvgRating(reviewList){
-        if(reviewList.length > 0){
-            let total = 0;
-            for(let i = 0; i < reviewList.length; i++){
-                
-
-                switch(reviewList[i].starValue){
-                    case 1:
-                        this.state.oneStarCount += 1;
-                        break;
-                    case 2:
-                        this.state.twoStarCount += 1;
-                        break;
-                    case 3:
-                        this.state.threeStarCount += 1;
-                        break;
-                    case 4:
-                        this.state.fourStarCount += 1;
-                        break;
-                    case 5:
-                        this.state.fiveStarCount += 1;
-                        break;
-                }
-
-                total += reviewList[i].starValue;
-            }
-            return total/reviewList.length;
-        }
-    }
 
     render(){
-        let avgRating = this.calculateAvgRating(this.state.reviews);
         let reviewCount = this.state.reviews.length;
+        let total = 0;
+        let one = 0;
+        let two = 0;
+        let three = 0;
+        let four = 0; 
+        let five = 0;
 
-        let fiveP = this.state.fiveStarCount/reviewCount * 100;
-        let fourP = this.state.fourStarCount/reviewCount * 100;
-        let threeP = this.state.threeStarCount/reviewCount * 100;
-        let twoP = this.state.twoStarCount/reviewCount * 100;
-        let oneP = this.state.oneStarCount/reviewCount * 100;
+        for(let i = 0; i < reviewCount; i++){
+            switch(this.state.reviews[i].starValue){
+                case 1:
+                    one += 1;
+                    break;
+                case 2:
+                    two += 1;
+                    break;
+                case 3:
+                    three += 1;
+                    break;
+                case 4:
+                    four += 1;
+                    break;
+                case 5:
+                    five += 1;
+                    break;
+            }
+            total += this.state.reviews[i].starValue;
+        }
+        let avgRating = total/reviewCount;
+        let percent5star = five/reviewCount * 100;
+        let percent4star = four/reviewCount * 100;
+        let percent3star = three/reviewCount * 100;
+        let percent2star = two/reviewCount * 100;
+        let percent1star = one/reviewCount * 100;
+
+
         return(
             <div>
                 <h3>Customer Reviews</h3>
                 <h4>{avgRating} out of 5</h4>
                 <h4>{this.state.reviews.length} global ratings</h4>
-                <h5>5 star - {fiveP}%</h5>
-                <h5>4 star - {fourP}%</h5>
-                <h5>3 star - {threeP}%</h5>
-                <h5>2 star - {twoP}%</h5>
-                <h5>1 star - {oneP}%</h5>
+                <div className='container'>
+                    <div className="ratingsChartDiv">
+                        <dl>
+                            <dd className={`percentage percentage-${percent5star}`}><span className="text">5 star</span> </dd>
+                            <dd className={`percentage percentage-${percent4star}`}><span className="text">4 star</span></dd>
+                            <dd className={`percentage percentage-${percent3star}`}><span className="text">3 star</span></dd>
+                            <dd className={`percentage percentage-${percent2star}`}><span className="text">2 star</span></dd>
+                            <dd className={`percentage percentage-${percent1star}`}><span className="text">1 star</span></dd>                    
+                        </dl>    
+                    </div>
+                    <div className='test2'>
+                        <div className='test'>
+                            {percent5star}%
+                        </div>
+                        <div className='test'>
+                            {percent4star}%
+                        </div>
+                        <div className='test'>
+                            {percent3star}%
+                        </div>
+                        <div className='test'>
+                            {percent2star}%
+                        </div>
+                        <div className='test'>
+                            {percent1star}%
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            
+            
             </div>
+
+
+
+
+
         )
     }
 }

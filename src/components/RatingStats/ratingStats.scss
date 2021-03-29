@@ -1,0 +1,130 @@
+/*
+*********************************************
+------------RATING STATS CSS----------------
+*/
+
+//REVIEW INDEX -- styling for individual reviews 
+ 
+//static stars for each individual review
+    
+.ratingsChartDiv{
+    width:225px;
+    margin-top:0px;
+    padding:0px;
+    float:left;
+    margin-left: 50px;
+}
+
+
+.test{
+    width: fit-content;
+    float: left;
+    color: #666666;
+    height:30px;
+    margin-bottom: 10px;
+    font-size:14px;
+}
+
+.test2{
+    float: left;
+    width: 0px;
+}
+  .yellow1{
+    color:#e7711b;
+  }
+ 
+
+  dl {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    width: 225px;
+    max-width: 700px;
+    position: relative;
+    padding: 0px;
+    margin:0px;
+  }
+  
+  dt {
+    align-self: flex-start;
+    width: 100%;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-left: 130px;
+    margin-left:115px;
+
+    margin-bottom: 50px;
+  }
+
+  
+  //for the rating number in front of the bar
+  .text {
+    text-transform: lowercase;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    height:auto;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    justify-content: flex-end;
+    z-index:1;
+    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+    padding-left: 0px;
+  }
+
+  //For the i.e. 5% (20) on the ratings chart
+  .graphPercent{
+    color: #666666;
+    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  
+
+  .percentage {
+    margin-bottom: 20px;
+    margin-left: 45px;
+    border-radius: 4px;
+
+    font-size: .8em;
+    text-transform: uppercase;
+    width: 75%;
+    
+    height: 20px;
+    background: repeating-linear-gradient(#ebe8e8, #ebe8e8 15px,);
+    border-color: #ffffffce;
+    
+    &:after {
+      content: "";
+      display: block;
+      border-radius: 4px 2px 2px 4px;
+      background-color: orange;
+      width: 0px;
+      margin-bottom: 10px;
+      height: 100%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color .3s ease;
+      cursor: pointer;
+    }
+    &:hover,
+    &:focus {
+      &:after {
+         background-color: white; 
+      }
+    }
+  }
+  
+  @for $i from 1 through 100 {
+    .percentage-#{$i} {
+      &:after {
+        $value: ($i * 1%);
+        width: $value;
+      }
+    }
+  }
+
