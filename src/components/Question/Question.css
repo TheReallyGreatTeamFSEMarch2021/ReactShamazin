@@ -1,5 +1,5 @@
 .voteBox{
-    width: 10%;
+    width: 7%;
     float: left;
     border: 2px solid purple;
     padding: 5px;
@@ -32,7 +32,6 @@
     color: blue;
     padding: 2px;
     text-align: center;
-    width: 50%;
     margin: right;
     overflow: auto;
     border: none;
@@ -72,6 +71,9 @@
     border: 2px solid black;
     margin: left;
     display: inline-block;
+    margin-right: 10px;
+    overflow: auto;
+    text-align: center;
 }
 
 #question{
@@ -79,6 +81,8 @@
     width: 50%;
     margin: right;
     display: inline-block;
+    color: blue;
+    overflow: auto;
 }
 
 .questionHorizontal{
@@ -87,6 +91,7 @@
 
 .answerHorizontal{
     border: none;
+    margin-top: 5px;
 }
 
 #answerTitle{
@@ -94,11 +99,26 @@
     border: 2px solid black;
     margin: left;
     display: inline-block;
+    margin-top: auto;
+    margin-right: 10px;
+    position: relative;
+    overflow: auto;
+    text-align: center;
+    float: left;
 }
 
-#answer{
+#answers{
     border: 2px solid purple;
-    width: 50%;
+    width: 40%;
     margin: right;
     display: inline-block;
+    
 }
+
+.answer{
+    border: none;
+    padding: 5px;
+    overflow: auto;
+
+}
+
