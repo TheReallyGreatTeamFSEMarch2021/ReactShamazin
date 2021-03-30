@@ -17,7 +17,6 @@ class RatingStats extends React.Component{
             oneStarCount:0,
             avg:0
         }
-
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -29,7 +28,6 @@ class RatingStats extends React.Component{
         }
     }
 
-
     render(){
         return(
            <div>
@@ -38,6 +36,7 @@ class RatingStats extends React.Component{
         )
     }
 
+    //if there are 0 reveiws render just the title
     renderSwitch(){
         if(this.state.reviews.length == 0){
             return(
@@ -55,6 +54,7 @@ class RatingStats extends React.Component{
             let four = 0; 
             let five = 0;
 
+            //count stars of each review adn calculate average
             for(let i = 0; i < reviewCount; i++){
                 switch(this.state.reviews[i].starValue){
                     case 1:
