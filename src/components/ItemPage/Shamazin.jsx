@@ -11,6 +11,7 @@ import TitleComponent from '../Title/titleComponent';
 import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 import QuestionComponent from "../Question/Question";
 import AllReviewPhotos from '../Review/allReviewPhotos';
+import RelatedBoughtItemsComponent from '../RelatedBoughtItemsComponent/RelatedBoughtItemsComponent';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -90,6 +91,9 @@ class Shamazin extends React.Component{
                 />
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
+                    <RelatedBoughtItemsComponent 
+                        itemID={this.state.itemID}
+                    />
                 </div>
                 <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
