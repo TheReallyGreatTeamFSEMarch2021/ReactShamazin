@@ -10,3 +10,9 @@
     margin: 10px;
     z-index: 1;
 }
+
+div > img {
+    height: 160px;
+    max-width: 160px;
+    max-height: 160px;
+}
