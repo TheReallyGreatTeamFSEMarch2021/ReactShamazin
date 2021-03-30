@@ -60,6 +60,7 @@ class RatingStats extends React.Component{
             total += this.state.reviews[i].starValue;
         }
         let avgRating = total/reviewCount;
+        avgRating = avgRating.toFixed(1);
         let percent5star = Math.round(five/reviewCount * 100);
         let percent4star = Math.round(four/reviewCount * 100);
         let percent3star = Math.round(three/reviewCount * 100);
@@ -69,15 +70,15 @@ class RatingStats extends React.Component{
         return(
             <div className='container'>
                 <h3 className="ratingsTitle">Customer Reviews</h3>
-                <div>
-                    <div>
+                <div className="avgRating">
+                    <div className='starsContainer'>
                         {this.ratingsSwitch(avgRating)}
                     </div>
-                    <div>
+                    <div className='avgStars'>
                         {avgRating} out of 5
                     </div>
                 </div>
-                <h4>{this.state.reviews.length} global ratings</h4>
+                <div className='globalRatings'>{this.state.reviews.length} global ratings</div>
                 <div className='graphContainer'>
                     <div className="ratingsChartDiv">
                         <dl>
@@ -88,7 +89,7 @@ class RatingStats extends React.Component{
                             <dd className={`percentage percentage-${percent1star}`}><span className="text">1 star</span></dd>                    
                         </dl>    
                     </div>
-                    <div className='test2'>
+                    <div className='percentageDiv'>
                         <div className='graphPercent'>
                             {percent5star}%
                         </div>
@@ -116,7 +117,6 @@ class RatingStats extends React.Component{
     }
 
     ratingsSwitch(rating){
-        console.log("renderSwitch"+ rating);
         rating = Math.round(rating);
         switch(rating){
             case 1:
