@@ -11,9 +11,14 @@
   margin:auto;
 }
 .ratingsTitle{
+  font-weight: bold;
   font-size: 25px;
   margin: 0;
   margin-bottom: 10px;
+}
+.noReviews{
+  text-align: center;
+  font-size: 18px;
 }
 .avgRating{
   width: 100%;

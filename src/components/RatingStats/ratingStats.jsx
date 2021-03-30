@@ -31,44 +31,60 @@ class RatingStats extends React.Component{
 
 
     render(){
-        let reviewCount = this.state.reviews.length;
-        let total = 0;
-        let one = 0;
-        let two = 0;
-        let three = 0;
-        let four = 0; 
-        let five = 0;
-
-        for(let i = 0; i < reviewCount; i++){
-            switch(this.state.reviews[i].starValue){
-                case 1:
-                    one += 1;
-                    break;
-                case 2:
-                    two += 1;
-                    break;
-                case 3:
-                    three += 1;
-                    break;
-                case 4:
-                    four += 1;
-                    break;
-                case 5:
-                    five += 1;
-                    break;
-            }
-            total += this.state.reviews[i].starValue;
-        }
-        let avgRating = total/reviewCount;
-        avgRating = avgRating.toFixed(1);
-        let percent5star = Math.round(five/reviewCount * 100);
-        let percent4star = Math.round(four/reviewCount * 100);
-        let percent3star = Math.round(three/reviewCount * 100);
-        let percent2star = Math.round(two/reviewCount * 100);
-        let percent1star = Math.round(one/reviewCount * 100);
-
         return(
-            <div className='container'>
+           <div>
+               {this.renderSwitch()}
+           </div>
+        )
+    }
+
+    renderSwitch(){
+        if(this.state.reviews.length == 0){
+            return(
+                <div className='container'>
+                    <div className="ratingsTitle">Customer Reviews</div>
+                    <div className="noReviews">No Reviews Yet</div>
+                </div>
+            );
+        }else{
+            let reviewCount = this.state.reviews.length;
+            let total = 0;
+            let one = 0;
+            let two = 0;
+            let three = 0;
+            let four = 0; 
+            let five = 0;
+
+            for(let i = 0; i < reviewCount; i++){
+                switch(this.state.reviews[i].starValue){
+                    case 1:
+                        one += 1;
+                        break;
+                    case 2:
+                        two += 1;
+                        break;
+                    case 3:
+                        three += 1;
+                        break;
+                    case 4:
+                        four += 1;
+                        break;
+                    case 5:
+                        five += 1;
+                        break;
+                }
+                total += this.state.reviews[i].starValue;
+            }
+            let avgRating = total/reviewCount;
+            avgRating = avgRating.toFixed(1);
+            let percent5star = Math.round(five/reviewCount * 100);
+            let percent4star = Math.round(four/reviewCount * 100);
+            let percent3star = Math.round(three/reviewCount * 100);
+            let percent2star = Math.round(two/reviewCount * 100);
+            let percent1star = Math.round(one/reviewCount * 100);
+
+            return(
+                <div className='container'>
                 <h3 className="ratingsTitle">Customer Reviews</h3>
                 <div className="avgRating">
                     <div className='starsContainer'>
@@ -107,15 +123,12 @@ class RatingStats extends React.Component{
                         </div>
                     </div>
                 </div>
-
-                
-
-            
-            
             </div>
-        )
+            );
+        }
     }
 
+    //renders the correct amount of stars
     ratingsSwitch(rating){
         rating = Math.round(rating);
         switch(rating){
