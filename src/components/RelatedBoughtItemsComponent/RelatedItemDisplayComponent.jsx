@@ -1,11 +1,13 @@
 const RelatedItemDisplayComponent = ({item}) => {
+    const photoURL = item.productPhotos.length > 0 ? item.productPhotos[0].photoURL : "";
+    const price = (item.price).toFixed(2);
+    
     return (
         <div>
-            <div>{item.id}</div>
-            <div>photo goes here</div>
+            <img src={photoURL} alt={item.name}/>
             <div>{item.name}</div>
-            <div>{item.price}</div>
-            <div>{item.primeEligible ? "This item is prime eligible" : ""}</div>
+            <div>{`$${price}`}</div>
+            <div>{item.primeEligible ? "prime" : ""}</div>
         </div>
     )
 };
