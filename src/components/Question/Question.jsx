@@ -22,29 +22,69 @@ class Question extends React.Component {
     }
   }
   addVote(question) {
-    let id = question.questionId
-    let votes = question.votes
-    question.votes = votes + 1;
-    document.getElementById(id).innerText = votes +"\nvotes";
+    question.votes = question.votes + 1;
+    document.getElementById(question.questionId).innerText =
+      question.votes + "\nvotes";
+
+    document.getElementById(
+      "upVoteId" + question.questionId
+    ).style.pointerEvents = "none";
+
+    document.getElementById(
+      "upVoteId" + question.questionId
+    ).style.borderBottom = "15px solid gray";
+
+    document.getElementById(
+      "downVoteId" + question.questionId
+    ).style.pointerEvents = "auto";
+
+    document.getElementById(
+      "downVoteId" + question.questionId
+    ).style.borderTop = "15px solid black";
+
+    document.getElementsByClassName("upVoteBtn::hover").style =
+      "15px solid orange";
+
+
+    
   }
 
   removeVote(question) {
-    let id = question.questionId
-    let votes = question.votes
-    question.votes = votes - 1;
-    document.getElementById(id).innerText = votes +"\nvotes";
+    question.votes = question.votes - 1;
+    document.getElementById(question.questionId).innerText =
+      question.votes + "\nvotes";
+
+    document.getElementById(
+      "downVoteId" + question.questionId
+    ).style.pointerEvents = "none";
+
+    document.getElementById(
+      "downVoteId" + question.questionId
+    ).style.borderTop = "15px solid gray";
+
+    document.getElementById(
+      "upVoteId" + question.questionId
+    ).style.pointerEvents = "auto";
+
+    document.getElementById(
+      "upVoteId" + question.questionId
+    ).style.borderBottom = "15px solid black";
   }
 
   render() {
     const questionList = this.state.questions.map((question) => {
       const answersForQuestion = question.answers.map((answer) => {
-        return <div class="answer">{answer.answer}</div>;
+          console.log(answer);
+        return <div class="answer">{answer.answer}
+        {answer.userId}
+        {answer.date}</div>;
       });
       return (
         <div class="question">
           <div class="voteBox">
             <div
               class="upVoteBtn"
+              id={"upVoteId" + question.questionId}
               alt="upVoteDiv"
               onClick={() => this.addVote(question)}
             ></div>
@@ -53,6 +93,7 @@ class Question extends React.Component {
             </p>
             <div
               class="downVoteBtn"
+              id={"downVoteId" + question.questionId}
               alt="downVoteDiv"
               onClick={() => this.removeVote(question)}
             ></div>
