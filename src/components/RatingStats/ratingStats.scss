@@ -6,62 +6,64 @@
 //REVIEW INDEX -- styling for individual reviews 
  
 //static stars for each individual review
-    
+.container{
+  width: 300px;
+  margin:auto;
+}
+.ratingsTitle{
+  font-size: 25px;
+}
+.graphContainer{
+  height: 200px;
+  width: 250px;
+  margin:auto;
+} 
 .ratingsChartDiv{
-    width:225px;
-    margin-top:0px;
-    padding:0px;
-    float:left;
-    margin-left: 50px;
+  width: 90%;
+  margin-top:0px;
+  padding:0px;
+  float:left;
+  margin:auto;
 }
-
-
-.test{
-    width: fit-content;
-    float: left;
-    color: #666666;
-    height:30px;
-    margin-bottom: 10px;
-    font-size:14px;
+.graphPercent{
+  width: fit-content;
+  float: left;
+  color: #666666;
+  height:30px;
+  margin-bottom: 10px;
+  font-size:14px;
 }
-
 .test2{
-    float: left;
-    width: 0px;
+  width: 10%;
+  float: right;
 }
-  .yellow1{
-    color:#e7711b;
-  }
- 
 
-  dl {
-    display: flex;
-    background-color: white;
-    flex-direction: column;
-    width: 225px;
-    max-width: 700px;
-    position: relative;
-    padding: 0px;
-    margin:0px;
-  }
+dl {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  width: 225px;
+  position: relative;
+  padding: 0px;
+  margin:0px;
+}
   
-  dt {
-    align-self: flex-start;
-    width: 100%;
-    font-weight: 700;
-    display: block;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-left: 130px;
-    margin-left:115px;
+dt {
+  align-self: flex-start;
+  width: 100%;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-left: 130px;
+  margin-left:115px;
 
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
+}
 
   
-  //for the rating number in front of the bar
   .text {
     text-transform: lowercase;
     display: flex;
@@ -76,13 +78,6 @@
     font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
     padding-left: 0px;
   }
-
-  //For the i.e. 5% (20) on the ratings chart
-  .graphPercent{
-    color: #666666;
-    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
-  }
-  
 
   .percentage {
     margin-bottom: 20px;

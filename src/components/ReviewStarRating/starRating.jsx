@@ -12,8 +12,9 @@ class StarRating extends React.Component {
     }
 
 
-
     renderSwitch(rating){
+        console.log("renderSwitch"+ rating);
+        rating = Math.round(rating);
         switch(rating){
             case 1:
                 return(

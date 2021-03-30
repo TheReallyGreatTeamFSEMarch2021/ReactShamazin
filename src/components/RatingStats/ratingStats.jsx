@@ -1,6 +1,8 @@
 import React from 'react';
 import ReviewService from '../../service/reviewService';
 import './ratingStats.scss'
+import StarRating from "../ReviewStarRating/starRating";
+import { render } from 'react-dom';
 
 class RatingStats extends React.Component{
     constructor(props){
@@ -12,7 +14,8 @@ class RatingStats extends React.Component{
             fourStarCount:0,
             threeStarCount:0,
             twoStarCount:0,
-            oneStarCount:0
+            oneStarCount:0,
+            avg:0
         }
 
     }
@@ -57,19 +60,25 @@ class RatingStats extends React.Component{
             total += this.state.reviews[i].starValue;
         }
         let avgRating = total/reviewCount;
-        let percent5star = five/reviewCount * 100;
-        let percent4star = four/reviewCount * 100;
-        let percent3star = three/reviewCount * 100;
-        let percent2star = two/reviewCount * 100;
-        let percent1star = one/reviewCount * 100;
-
+        let percent5star = Math.round(five/reviewCount * 100);
+        let percent4star = Math.round(four/reviewCount * 100);
+        let percent3star = Math.round(three/reviewCount * 100);
+        let percent2star = Math.round(two/reviewCount * 100);
+        let percent1star = Math.round(one/reviewCount * 100);
 
         return(
-            <div>
-                <h3>Customer Reviews</h3>
-                <h4>{avgRating} out of 5</h4>
+            <div className='container'>
+                <h3 className="ratingsTitle">Customer Reviews</h3>
+                <div>
+                    <div>
+                        {this.ratingsSwitch(avgRating)}
+                    </div>
+                    <div>
+                        {avgRating} out of 5
+                    </div>
+                </div>
                 <h4>{this.state.reviews.length} global ratings</h4>
-                <div className='container'>
+                <div className='graphContainer'>
                     <div className="ratingsChartDiv">
                         <dl>
                             <dd className={`percentage percentage-${percent5star}`}><span className="text">5 star</span> </dd>
@@ -80,19 +89,19 @@ class RatingStats extends React.Component{
                         </dl>    
                     </div>
                     <div className='test2'>
-                        <div className='test'>
+                        <div className='graphPercent'>
                             {percent5star}%
                         </div>
-                        <div className='test'>
+                        <div className='graphPercent'>
                             {percent4star}%
                         </div>
-                        <div className='test'>
+                        <div className='graphPercent'>
                             {percent3star}%
                         </div>
-                        <div className='test'>
+                        <div className='graphPercent'>
                             {percent2star}%
                         </div>
-                        <div className='test'>
+                        <div className='graphPercent'>
                             {percent1star}%
                         </div>
                     </div>
@@ -103,12 +112,135 @@ class RatingStats extends React.Component{
             
             
             </div>
-
-
-
-
-
         )
+    }
+
+    ratingsSwitch(rating){
+        console.log("renderSwitch"+ rating);
+        rating = Math.round(rating);
+        switch(rating){
+            case 1:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+            case 2:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+            case 3:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+            case 4:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+            case 5:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/singleStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+
+            default:
+                return(
+                    <div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                        <div className="starContainer">
+                            <img className="starPhoto" src="https://shamazin.s3.amazonaws.com/emptyStar.png" alt=""/>
+                        </div>
+                    </div>
+                );
+        }
     }
 }
 export default RatingStats;
