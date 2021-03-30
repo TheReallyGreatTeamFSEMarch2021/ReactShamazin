@@ -21,15 +21,21 @@ class Question extends React.Component {
         });
     }
   }
+  addVote(question) {
+    let id = question.questionId
+    let votes = question.votes
+    question.votes = votes + 1;
+    document.getElementById(id).innerText = votes +"\nvotes";
+  }
+
+  removeVote(question) {
+    let id = question.questionId
+    let votes = question.votes
+    question.votes = votes - 1;
+    document.getElementById(id).innerText = votes +"\nvotes";
+  }
 
   render() {
-    function addVote(question) {
-      console.log("Adding a question");
-    }
-
-    function removeVote() {
-      console.log("Removing vote");
-    }
     const questionList = this.state.questions.map((question) => {
       const answersForQuestion = question.answers.map((answer) => {
         return <div class="answer">{answer.answer}</div>;
@@ -37,14 +43,18 @@ class Question extends React.Component {
       return (
         <div class="question">
           <div class="voteBox">
-            <div class="upVoteBtn" alt="upVoteDiv" onClick={addVote}></div>
-            <p class="x">
+            <div
+              class="upVoteBtn"
+              alt="upVoteDiv"
+              onClick={() => this.addVote(question)}
+            ></div>
+            <p class="x" id={question.questionId}>
               {question.votes} <br /> votes{" "}
             </p>
             <div
               class="downVoteBtn"
               alt="downVoteDiv"
-              onClick={removeVote}
+              onClick={() => this.removeVote(question)}
             ></div>
           </div>
           <div class="qNaBox">

@@ -67,18 +67,19 @@
 }
 
 #qNaTitle{
-    width: 15%;
+    width: 12%;
     border: 2px solid black;
     margin: left;
     display: inline-block;
     margin-right: 10px;
+    margin-left: -15px;
     overflow: auto;
     text-align: center;
 }
 
 #question{
     border: 2px solid purple;
-    width: 50%;
+    width: 75%;
     margin: right;
     display: inline-block;
     color: blue;
@@ -95,12 +96,12 @@
 }
 
 #answerTitle{
-    width: 15%;
+    width: 12%;
     border: 2px solid black;
     margin: left;
-    display: inline-block;
     margin-top: auto;
     margin-right: 10px;
+    margin-left: -15px;
     position: relative;
     overflow: auto;
     text-align: center;
@@ -109,7 +110,7 @@
 
 #answers{
     border: 2px solid purple;
-    width: 40%;
+    width: 75%;
     margin: right;
     display: inline-block;
     
@@ -119,6 +120,6 @@
     border: none;
     padding: 5px;
     overflow: auto;
-
+    margin-bottom: 10px;
 }
 
