@@ -1,6 +1,7 @@
 import React from 'react';
 import './RelatedBoughtItems.css';
 import RelatedItemDisplayComponent from './RelatedItemDisplayComponent';
+import DisplayNavigationComponent from './DisplayNavigationComponent';
 import relatedBoughtItemService from '../../service/relatedBoughtItemService';
 
 class RelatedBoughtItemsComponent extends React.Component {
@@ -81,9 +82,17 @@ class RelatedBoughtItemsComponent extends React.Component {
     render() {
         return (
             <div className="RelatedBoughtItems">
-                <div onClick={this.displayPreviousPage}>Back Arrow</div>
+                <DisplayNavigationComponent
+                    direction="<"
+                    handleClick={this.displayPreviousPage}
+                />
+
                 {this.displayRelatedItems()}
-                <div onClick={this.displayNextPage}>Forward Arrow</div>
+
+                <DisplayNavigationComponent
+                    direction=">"
+                    handleClick={this.displayNextPage}
+                />
             </div>
         )
     }
