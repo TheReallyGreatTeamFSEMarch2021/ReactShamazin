@@ -34,12 +34,10 @@ class AllReviewPhotos extends React.Component {
             return(
                 <div>
                     <h3 className="customerImages">Customer images</h3>
-                    <div className="noImages">No uploaded images yet</div>
+                    <div className="noImages">No customer images uploaded</div>
                 </div>
             )
         }else{
-
-
             const reviewPhotos = this.state.photos.map(photo => {
                 return(
                     <div className="photoContainer">

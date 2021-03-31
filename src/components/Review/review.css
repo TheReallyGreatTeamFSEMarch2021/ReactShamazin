@@ -81,10 +81,6 @@
     object-fit:cover;
 }
 
-.customerImages{
-    font-size: 25px;
-    margin: 0;
-}
 
 .buttons{
     clear: both;
@@ -127,4 +123,14 @@
 .starPhoto{
     width: 20px;
     height: 20px;
+}
+
+.customerImages{
+    font-size: 25px;
+    margin: 0;
+}
+
+.noImages{
+    padding-top: 5px;
+    padding-left: 5px;
 }
