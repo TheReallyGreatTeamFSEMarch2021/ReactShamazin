@@ -54,8 +54,13 @@ class Question extends React.Component {
   removeVote(question) {
     
     question.votes = question.votes - 1;
-    document.getElementById(question.questionId).innerText =
+    if (question.votes==1){
+        document.getElementById(question.questionId).innerText =
+      question.votes + "\nvote";
+    }else{
+        document.getElementById(question.questionId).innerText =
       question.votes + "\nvotes";
+    }
 
     document.getElementById(
       "downVoteId" + question.questionId
