@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Ember;
+  font-family: Ember, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -8,7 +8,16 @@ body {
   font-family: Ember;
   src: url(fonts/AmazonEmber_Rg.ttf);
 }
-
+@font-face {
+  font-family: Ember;
+  src: url(fonts/AmazonEmber_Bd.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Ember;
+  src: url(fonts/AmazonEmber_RgIt.ttf);
+  font-style: italic;
+}
 body{
   padding:0px;
 }
