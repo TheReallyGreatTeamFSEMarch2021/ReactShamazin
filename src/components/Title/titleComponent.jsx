@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewService from '../../service/reviewService';
 import StarRating from '../ReviewStarRating/starRating';
+import ReviewPopup from './ReviewPopup/reviewPopup';
 import './titleComponent.css';
 
 class TitleComponent extends React.Component {
@@ -8,8 +9,10 @@ class TitleComponent extends React.Component {
         super(props);
         this.state={
             rating: 0,
-            reviews: []
+            reviews: [],
+            showPopup: false
         }
+        this.showRatings=this.showRatings.bind(this);
     }
 
     componentDidMount() {
@@ -38,6 +41,11 @@ class TitleComponent extends React.Component {
             })
         }
     }
+    showRatings() {
+        if(this.state.showPopup) this.setState({showPopup: false});
+        else this.setState({showPopup: true});
+        this.render();
+    }
 
     render() {
         return(
@@ -45,7 +53,9 @@ class TitleComponent extends React.Component {
                 <div className="row col-12">
                     <h1>{this.props.item.name}</h1>
                     <StarRating starRating={this.state.rating}/>
-                    <h3>{this.state.reviews.length} ratings</h3>
+                    <h3 className="reviewPopup" onClick={()=>this.showRatings()}>{this.state.reviews.length} ratings
+                        <ReviewPopup showPopup={this.state.showPopup}/>
+                    </h3>
                     <h3>Includes Num answered questions</h3>
                 </div>
                 <div className='row col-12'>
