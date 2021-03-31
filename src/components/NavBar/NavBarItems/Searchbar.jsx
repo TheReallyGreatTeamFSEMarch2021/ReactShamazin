@@ -11,10 +11,9 @@ const InputBar = styled("input")`
     border-radius: 10px;
 `;
 const SearchButton = styled.button`
-    
-    padding: 10px;
     display: inline-block;
     border-radius: 10px;
+    font-size: 30px;
 
 `;
 
@@ -28,8 +27,8 @@ searchHandler = (e)=>
     alert(`You have searched for ${this.state.userInput}\n but this has not been implemented yet...`)
 }
 handleChange = (e)=>{
-// I don't think this is optimal
-this.setState({userInput: e.target.value})
+    // I don't think this is optimal
+    this.setState({userInput: e.target.value})
 }
 render(){
     return (<wrapper>

@@ -35,6 +35,7 @@ const FlagIcon = styled.select`
     margin-right:10px;
     background-color: transparent;
     color: white;
+    border: none;
 `;
 const BoldText = styled.select`
     font-size:30px;
