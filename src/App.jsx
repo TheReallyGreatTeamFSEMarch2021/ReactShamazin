@@ -15,10 +15,11 @@ function App() {
     <Router>
       <div> 
         <Switch>
+          <Route exact path='/' component={Index}/>
           <Route path='/items/:itemID' component={Shamazin}/>
           <Route path='/login' component={Login}/>
           <Route path='/register' component={Register}/>
-          <Route path='/' component={Index}/>
+          
           
         </Switch>
       </div>

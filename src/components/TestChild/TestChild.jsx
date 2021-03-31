@@ -58,6 +58,19 @@ class TestChildComponent extends React.Component{
                     <StyledTestChild.BlueButton secondary>Blue Styled Button with property primary</StyledTestChild.BlueButton>                 
                     <StyledTestChild.DarkBlueButton>Dark Blue Styled Button</StyledTestChild.DarkBlueButton>
                     <br/>
+
+                    <h2>Showing grid system</h2>
+                    <div class="row col-12">
+                        <div class="col-3">
+                             25% of the screen
+                        </div>
+                        <div class="col-6">
+                            50% of the screen
+                        </div >
+                        <div class="col-3">
+                             25% of the screen
+                        </div>
+                    </div>
                 </div>
             )
         }
