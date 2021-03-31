@@ -10,7 +10,8 @@ class TitleComponent extends React.Component {
         this.state={
             rating: 0,
             reviews: [],
-            showPopup: false
+            showPopup: false,
+            itemFamilyID: 0
         }
         this.showRatings=this.showRatings.bind(this);
     }
@@ -39,6 +40,9 @@ class TitleComponent extends React.Component {
                     reviews: response.data
                 })
             })
+            this.setState({
+                itemFamilyID: this.props.itemFamilyID
+            })
         }
     }
     showRatings() {
@@ -54,7 +58,7 @@ class TitleComponent extends React.Component {
                     <h1>{this.props.item.name}</h1>
                     <StarRating starRating={this.state.rating}/>
                     <h3 className="reviewPopup" onClick={()=>this.showRatings()}>{this.state.reviews.length} ratings
-                        <ReviewPopup showPopup={this.state.showPopup}/>
+                        <ReviewPopup showPopup={this.state.showPopup} itemFamilyID={this.state.itemFamilyID}/>
                     </h3>
                     <h3>Includes Num answered questions</h3>
                 </div>
