@@ -12,6 +12,7 @@ import ItemSwitcherComponent from '../ItemSwitcher/itemSwitcher'
 import QuestionComponent from "../Question/Question";
 import AllReviewPhotos from '../Review/allReviewPhotos';
 import RelatedBoughtItemsComponent from '../RelatedBoughtItemsComponent/RelatedBoughtItemsComponent';
+import RatingStats from '../RatingStats/ratingStats';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -25,7 +26,7 @@ class Shamazin extends React.Component{
             item: {},
             items: [],
             infos: [],
-            itemFamilyID : 0
+            itemFamily: {}
         }
         
     }
@@ -52,16 +53,14 @@ class Shamazin extends React.Component{
             .then(response=> {
                 this.setState({infos:response.data})
         });  
-        ShamazinService.getFamilyId(this.state.itemID)
+        ShamazinService.getFamilyByItemId(this.state.itemID)
             .then( response=>{
-                this.setState({itemFamilyID: response.data});
-                ShamazinService.getFamilyItems(response.data)
-                    .then(resp=> {
-                        this.setState({
-                            items: resp.data
-                        })
-                        console.log(resp.data);
-                    })
+                this.setState({
+                    itemFamily: response.data,
+                    items: response.data.items
+                });
+                console.log(response.data);
+                
             });
     }
     
@@ -87,7 +86,7 @@ class Shamazin extends React.Component{
                     </div>
                 </div>
                 <ItemSwitcherComponent
-                    itemFamilyID={this.state.itemFamilyID}
+                    itemFamilyID={this.state.itemFamily.id}
                 />
                 <div className="row col-12">
                     <h1>Related Items Component</h1>
@@ -98,21 +97,22 @@ class Shamazin extends React.Component{
                 <div className="row col-12">
                     <h1>Customer Q's and A's Component</h1>
                     <QuestionComponent
-                        itemFamilyID={this.state.itemFamilyID}
+                        itemFamilyID={this.state.itemFamily.id}
                         />
                 </div>
                 <div className="row col-12">
                     <div className="row col-ratingstats">
-                        Customer Reviews
-                        <h1>Ratings Statistics Table Component</h1>
+                        <RatingStats
+                            itemFamilyID={this.state.itemFamily.id} 
+                        />
                     </div>
                     <div class="row col-reviews">
                         <div class="row col-12">
                             <AllReviewPhotos
-                                itemFamilyID={this.state.itemFamilyID}
+                                itemFamilyID={this.state.itemFamily.id}
                             />
                             <ReviewComponent 
-                                itemFamilyID={this.state.itemFamilyID}
+                                itemFamilyID={this.state.itemFamily.id}
                             />
                         </div>
                     </div>
