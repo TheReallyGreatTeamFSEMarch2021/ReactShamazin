@@ -105,14 +105,9 @@ class Shamazin extends React.Component{
                 </div>
                 <div className="row col-12">
                     <div className="row col-ratingstats">
-<<<<<<< HEAD
-                        Customer Reviews
-                        <h5 id="qNaH5">Ratings Statistics Table Component</h5>
-=======
                         <RatingStats
                             itemFamilyID={this.state.itemFamily.id} 
                         />
->>>>>>> feature_ReviewStats
                     </div>
                     <div class="row col-reviews">
                         <div class="row col-12">
