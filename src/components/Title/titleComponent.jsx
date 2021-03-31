@@ -60,7 +60,7 @@ class TitleComponent extends React.Component {
                     <h3 className="reviewPopup" onClick={()=>this.showRatings()}>{this.state.reviews.length} ratings
                         <ReviewPopup showPopup={this.state.showPopup} itemFamilyID={this.state.itemFamilyID}/>
                     </h3>
-                    <h3>Includes Num answered questions</h3>
+                    <h3>{this.state.reviews.length} answered questions</h3>
                 </div>
                 <div className='row col-12'>
                     <h1>Features Component</h1>
