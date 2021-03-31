@@ -22,10 +22,15 @@ class Question extends React.Component {
     }
   }
   addVote(question) {
-    question.votes = question.votes + 1;
-    document.getElementById(question.questionId).innerText =
-      question.votes + "\nvotes";
 
+    question.votes = question.votes + 1;
+    if (question.votes==1){
+        document.getElementById(question.questionId).innerText =
+      question.votes + "\nvote";
+    }else{
+        document.getElementById(question.questionId).innerText =
+      question.votes + "\nvotes";
+    }
     document.getElementById(
       "upVoteId" + question.questionId
     ).style.pointerEvents = "none";
@@ -44,12 +49,10 @@ class Question extends React.Component {
 
     document.getElementsByClassName("upVoteBtn::hover").style =
       "15px solid orange";
-
-
-    
   }
 
   removeVote(question) {
+    
     question.votes = question.votes - 1;
     document.getElementById(question.questionId).innerText =
       question.votes + "\nvotes";
@@ -71,14 +74,50 @@ class Question extends React.Component {
     ).style.borderBottom = "15px solid black";
   }
 
+  convertDate(dateString) {
+    let year = dateString.substring(0, 4);
+    let month = dateString.substring(5, 7);
+    if (month[0] == 0) {
+      month = month[1];
+    }
+    let day = dateString.substring(8, 10);
+    month = this.monthName(month);
+
+    let newdate = month + " " + day + ", " + year;
+    return newdate;
+  }
+
+  monthName(mon) {
+    return [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ][mon - 1];
+  }
+
   render() {
     const questionList = this.state.questions.map((question) => {
       const answersForQuestion = question.answers.map((answer) => {
-          console.log(answer);
-        return <div class="answer">{answer.answer}
-        {answer.userId}
-        {answer.date}</div>;
+        let date = this.convertDate(answer.date);
+        
+        return (
+          <div class="answer">
+            {answer.answer} 
+            <p class="answerDate">{date}</p>
+          </div>
+        );
       });
+      let textVotes = "votes"
+      if(question.votes === 1){textVotes="vote"}
       return (
         <div class="question">
           <div class="voteBox">
@@ -89,7 +128,7 @@ class Question extends React.Component {
               onClick={() => this.addVote(question)}
             ></div>
             <p class="x" id={question.questionId}>
-              {question.votes} <br /> votes{" "}
+              {question.votes}<br/>{textVotes}
             </p>
             <div
               class="downVoteBtn"
