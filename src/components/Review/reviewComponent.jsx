@@ -25,60 +25,9 @@ class ReviewComponent extends React.Component {
     }
 
     render(){
-        
-        const reviewList = this.state.reviews.map(review =>{
-            
-           // const reviewPhotos = review.
-            const reviewPhotos = review.reviewPhotos.map(photo => {
-                return(
-                <div className="photoContainerMini">
-                    <img className="reviewPhotoMini" src={photo.photoURL} alt=""/>
-                </div>
-                );
-            });
-
-            return(
-                <div className="review">
-                    <div className="review_titleSection col-7">
-                        <div className="review_starRating">
-                            <StarRating
-                                starRating={review.starValue}
-                            />
-                            
-                        </div>
-                        <div className="review_title">
-                            {review.title}
-                        </div>
-                    </div>
-
-                    <div className="review_content col-9">
-                        <span>{review.content}</span>
-                    </div>
-                    
-                    <div className="review_miniPhotos col-8">
-                        {reviewPhotos}
-                    </div>
-                    
-                    <div className="review_score">
-                        {review.score} people found this helpful
-                    </div>
-                    <div className="buttons">
-                        <Link to="/Login">
-                        <button className="helpful">Helpful</button>
-                        </Link>
-                        <Link className="report" to="/Login"> Report Abuse </Link>
-                    </div>
-                    
-                </div>
-            );
-
-        });
-
-
         return(
             <div className="col-12">
                 {this.renderSwitch()}
-                {reviewList}
             </div>
         );
     }
@@ -130,11 +79,14 @@ class ReviewComponent extends React.Component {
                          <div className="review_score">
                              {review.score} people found this helpful
                          </div>
+
                          <div className="buttons">
                              <Link to="/Login">
-                             <button className="helpful">Helpful</button>
+                                <button className="helpful">Helpful</button>
                              </Link>
-                             <Link className="report" to="/Login"> Report Abuse </Link>
+                             <div className="reportDiv">
+                                <Link className="report" to="/Login"> Report Abuse </Link>
+                             </div>
                          </div>
                          
                      </div>
