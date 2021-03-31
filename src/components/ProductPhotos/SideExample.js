@@ -72,11 +72,7 @@ class SideExample extends Component {
               zoomContainerBorder="1px solid #ccc"
               zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
             />
-            <SideExampleControls
-              handleBoolChange={this.handleBoolChange}
-              handleNumberChange={this.handleNumberChange}
-              enableFillControls={fillAvailableSpace}
-            />
+           
           </div>
         </ExampleContainer>
       </React.Fragment>
@@ -85,3 +81,9 @@ class SideExample extends Component {
 }
 
 export default SideExample;
+
+{/* <SideExampleControls
+handleBoolChange={this.handleBoolChange}
+handleNumberChange={this.handleNumberChange}
+enableFillControls={fillAvailableSpace}
+/> */}
