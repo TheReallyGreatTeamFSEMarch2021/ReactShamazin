@@ -30,8 +30,8 @@ class ProductPhotos extends React.Component {
             });
     }
 
-    changeMainPicture(photoUrl) {
-        this.setState({mainPhotoURL: photoUrl});
+    changeMainPicture(productPhoto) {
+        this.setState({mainPhotoURL: productPhoto.photoURL, focusGalleryItemID: productPhoto.id});
     }
 
 
@@ -39,11 +39,11 @@ class ProductPhotos extends React.Component {
         const photosList = this.state.productPhotos.map(productPhoto => {
             if(productPhoto.id === this.state.focusGalleryItemID){
                 return(
-                    <img class="galleryPhoto focus" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
+                    <img class="galleryPhoto focus" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto)}/>
                 )
             }else{
                 return (
-                    <img class="galleryPhoto" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
+                    <img class="galleryPhoto" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto)}/>
                 );
             }      
         });

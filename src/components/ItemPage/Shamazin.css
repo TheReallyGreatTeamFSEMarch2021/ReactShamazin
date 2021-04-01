@@ -1,5 +1,5 @@
 .itemPageContainer *{
-    /* border: 1px solid green; */
+    border: 1px solid green;
     box-sizing:border-box;
     /* position:relative; */
     z-index:0;
