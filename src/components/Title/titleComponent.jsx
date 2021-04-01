@@ -4,6 +4,7 @@ import StarRating from '../ReviewStarRating/starRating';
 import ReviewPopup from './ReviewPopup/reviewPopup';
 import './titleComponent.css';
 import InfosComponent from '../Infos/Infos';
+import FeaturesComponent from './FeaturesComponent/featuresComponent';
 class TitleComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,8 @@ class TitleComponent extends React.Component {
             rating: 0,
             reviews: [],
             showPopup: false,
-            itemFamilyID: 0
+            itemFamilyID: 0,
+            item: this.props.item
         }
         this.showRatings=this.showRatings.bind(this);
     }
@@ -44,6 +46,11 @@ class TitleComponent extends React.Component {
                 itemFamilyID: this.props.itemFamilyID
             })
         }
+        if(this.props.item != prevProps.item) {
+            this.setState({
+                item: this.props.item
+            });
+        }
     }
     showRatings() {
         if(this.state.showPopup) this.setState({showPopup: false});
@@ -63,9 +70,8 @@ class TitleComponent extends React.Component {
                     <h3>{this.state.reviews.length} answered questions</h3>
                 </div>
                 <div className='row col-12'>
-                    <h1>Features Component</h1>
-                    <h3>Includes Price, Prime Logo</h3>
-                    <h3>Includes Diff Features</h3>
+                    <h3>Price: ${this.state.item.price}</h3>
+                    <FeaturesComponent properties={this.state.item.properties}/>
                 </div>
                 <div className='row col-12'>
                     <InfosComponent infos = {this.props.infos}/>
