@@ -1,0 +1,16 @@
+.itemPageContainer *{
+    border: 1px solid green;
+    box-sizing:border-box;
+    /* position:relative; */
+    z-index:-1;
+    font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+           
+}
+
+.navBarDiv * {
+    border: 1px solid blue;
+}
+
+#qNaH5{
+    color: black;
+}
