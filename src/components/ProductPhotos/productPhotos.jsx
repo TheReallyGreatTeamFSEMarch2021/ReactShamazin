@@ -30,9 +30,30 @@ class ProductPhotos extends React.Component {
             });
     }
 
+
     changeMainPicture(productPhoto) {
         this.setState({mainPhotoURL: productPhoto.photoURL, focusGalleryItemID: productPhoto.id});
     }
+
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.itemID !== this.props.itemID){
+            ProductPhotoService.getProductPhotosByItemID(this.props.itemID)
+                .then(response=>{
+                    this.setState({
+                        productPhotos: response.data,
+                    })
+                    if(response.data.length>0) {
+                        this.setState({
+                            mainPhotoURL: response.data[0].photoURL
+                        })
+                    }
+                })
+        }
+    }
+
+   
+   
 
 
     render() {
