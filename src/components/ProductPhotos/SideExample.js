@@ -51,7 +51,7 @@ class SideExample extends Component {
     
     return (
       <React.Fragment>
-        <ExampleContainer title="Side By Side Magnifier">
+        {/* <ExampleContainer title="Side By Side Magnfier" > */}
           <div className="flex">
             <SideBySideMagnifier
               className="input-position"
@@ -72,9 +72,8 @@ class SideExample extends Component {
               zoomContainerBorder="1px solid #ccc"
               zoomContainerBoxShadow="0 4px 8px rgba(0,0,0,.5)"
             />
-           
           </div>
-        </ExampleContainer>
+        {/* </ExampleContainer> */}
       </React.Fragment>
     );
   }
