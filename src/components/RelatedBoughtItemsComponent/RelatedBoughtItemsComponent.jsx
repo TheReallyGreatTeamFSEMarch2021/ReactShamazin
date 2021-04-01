@@ -1,6 +1,7 @@
 import React from 'react';
 import './RelatedBoughtItems.css';
 import RelatedItemDisplayComponent from './RelatedItemDisplayComponent';
+import DisplayNavigationComponent from './DisplayNavigationComponent';
 import relatedBoughtItemService from '../../service/relatedBoughtItemService';
 
 class RelatedBoughtItemsComponent extends React.Component {
@@ -13,6 +14,7 @@ class RelatedBoughtItemsComponent extends React.Component {
             relatedItems: [],
             totalNumOfRelatedItems: 0,
             totalNumOfPages: 0,
+            shouldDisplayArrow: false,
         };
         
         this.displayNextPage = this.displayNextPage.bind(this);
@@ -27,11 +29,13 @@ class RelatedBoughtItemsComponent extends React.Component {
                 const totalNumOfRelatedItems = response.data.length;
                 const relatedItems = totalNumOfRelatedItems <= 7 ? response.data : response.data.slice(0, 7);
                 const totalNumOfPages = Math.ceil(totalNumOfRelatedItems / 7);
+                const shouldDisplayArrow = totalNumOfPages > 1;
 
                 this.setState({
                     totalNumOfRelatedItems,
                     relatedItems,
                     totalNumOfPages,
+                    shouldDisplayArrow,
                 });
             });
     }
@@ -79,11 +83,23 @@ class RelatedBoughtItemsComponent extends React.Component {
     }
 
     render() {
+        const { shouldDisplayArrow } = this.state;
+
         return (
             <div className="RelatedBoughtItems">
-                <div onClick={this.displayPreviousPage}>Back Arrow</div>
+                <DisplayNavigationComponent
+                    direction="<"
+                    handleClick={this.displayPreviousPage}
+                    shouldDisplayArrow={shouldDisplayArrow}
+                />
+
                 {this.displayRelatedItems()}
-                <div onClick={this.displayNextPage}>Forward Arrow</div>
+
+                <DisplayNavigationComponent
+                    direction=">"
+                    handleClick={this.displayNextPage}
+                    shouldDisplayArrow={shouldDisplayArrow}
+                />
             </div>
         )
     }

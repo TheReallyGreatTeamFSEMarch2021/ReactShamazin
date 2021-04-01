@@ -10,3 +10,24 @@
     margin: 10px;
     z-index: 1;
 }
+
+.RelatedItemName {
+    color: #0059ff;
+}
+
+.RelatedItemPrice {
+    color: rgb(204, 112, 0);
+    font-weight: bold;
+}
+
+.RelatedItemPrimeEligibility {
+    max-height: 40px !important;
+    border: none;
+}
+
+.RelatedBoughtItems > div > img {
+    display: block;
+    height: 160px;
+    max-width: 160px;
+    max-height: 160px;
+}

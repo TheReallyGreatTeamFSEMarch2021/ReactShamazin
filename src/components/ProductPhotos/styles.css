@@ -1,0 +1,17 @@
+.small-image {
+    width: 100%;
+    display: block;
+    visibility: hidden;
+  }
+  
+  .show {
+    visibility: visible;
+  }
+  
+  .large-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+  }
