@@ -7,17 +7,17 @@ class ReviewPopup extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            show: false,
             itemFamilyID: 0
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            itemFamilyID: this.props.itemFamilyID
+        })
+    }
+
     componentDidUpdate(prevProps,prevState) {
-        if(this.props.showPopup!=prevProps.showPopup) {
-            this.setState({
-                show: this.props.showPopup
-            });
-        }
         if(this.props.itemFamilyID!=prevProps.itemFamilyID) {
             this.setState({
                 itemFamilyID: this.props.itemFamilyID
@@ -27,9 +27,9 @@ class ReviewPopup extends React.Component {
 
     render() {
         return(
-            <div className="reviewPopupText"><RatingStats
-            itemFamilyID={this.state.itemFamilyID} 
-        /></div>
+            <div className="reviewPopupText">
+                <RatingStats itemFamilyID={this.state.itemFamilyID}/>
+            </div>
         );
     }
 }
