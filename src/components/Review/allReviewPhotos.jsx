@@ -22,22 +22,39 @@ class AllReviewPhotos extends React.Component {
     }
 
     render(){
-        const reviewPhotos = this.state.photos.map(photo => {
-            return(
-                <div className="photoContainer">
-                    <img className="reviewPhoto" src={photo.photoURL} alt=""/>
-                </div>
-            )
-        });
-
         return(
             <div>
-                <h3 className="customerImages">Customer images</h3>
-                {reviewPhotos}
+                {this.renderSwitch()}
             </div>
         )
     }
 
+    renderSwitch(){
+        if(this.state.photos.length === 0){
+            return(
+                <div>
+                    <h3 className="customerImages">Customer images</h3>
+                    <div className="noImages">No customer images uploaded</div>
+                </div>
+            )
+        }else{
+            const reviewPhotos = this.state.photos.map(photo => {
+                return(
+                    <div className="photoContainer">
+                        <img className="reviewPhoto" src={photo.photoURL} alt=""/>
+                    </div>
+                )
+            });
+    
+            return(
+                <div>
+                    <h3 className="customerImages">Customer images</h3>
+                    {reviewPhotos}
+                </div>
+            )
+
+        }
+    }
 
 }
 
