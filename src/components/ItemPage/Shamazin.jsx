@@ -85,9 +85,14 @@ class Shamazin extends React.Component{
                             itemID={this.state.itemID}
                         />
                     </div>
+                    
                     <TitleComponent
+                        infos={this.state.infos}
                         item={this.state.item} itemFamilyID={this.state.itemFamily.id} rating={this.state.rating}
                     />
+                    
+                    
+                   
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>

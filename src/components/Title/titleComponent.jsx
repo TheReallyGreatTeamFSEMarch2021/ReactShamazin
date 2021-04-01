@@ -3,7 +3,7 @@ import ReviewService from '../../service/reviewService';
 import StarRating from '../ReviewStarRating/starRating';
 import ReviewPopup from './ReviewPopup/reviewPopup';
 import './titleComponent.css';
-
+import InfosComponent from '../Infos/Infos';
 class TitleComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -66,6 +66,9 @@ class TitleComponent extends React.Component {
                     <h1>Features Component</h1>
                     <h3>Includes Price, Prime Logo</h3>
                     <h3>Includes Diff Features</h3>
+                </div>
+                <div className='row col-12'>
+                    <InfosComponent infos = {this.props.infos}/>
                 </div>
             </div>
         );
