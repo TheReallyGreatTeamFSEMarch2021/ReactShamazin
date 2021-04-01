@@ -9,6 +9,9 @@ class productPhotoService{
         return axios.get(`/api/productPhotosForItem/${itemID}`);
     }
 
+    deleteProductPhotoByID(productPhotoID){
+        return axios.delete(`/api/productPhotos/${productPhotoID}`);
+    }
     // export const getCafeByFilters = filters => {
     //     return axios.post(`/api/cafes/filters`, filters)
     // };
