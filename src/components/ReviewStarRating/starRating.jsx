@@ -11,6 +11,13 @@ class StarRating extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps,prevState) {
+        if(this.props.starRating!=prevProps.starRating) {
+            this.setState({
+                starRating: this.props.starRating
+            });
+        }
+    }
 
     renderSwitch(rating){
         rating = Math.round(rating);
