@@ -1,0 +1,17 @@
+.test{
+    color:pink;
+}
+
+.shamazinLogo{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    padding:5px;
+}
+
+.centeredVert{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    /* padding-top:5px; */
+}

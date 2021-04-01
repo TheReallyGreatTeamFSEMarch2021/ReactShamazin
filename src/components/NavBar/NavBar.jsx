@@ -4,17 +4,25 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Address from './NavBarItems/Address';
 import Searchbar from './NavBarItems/Searchbar';
-import cart from '../../assets/cart.png'
+import cart from '../../assets/cart.png';
+import './NavBar.css';
+
 // Need to find another place to have this at
 const Nav = styled.div`
-    width: 100vw ;
+    width:100% ;
     background-color: rgb(19,25,33);
-    display: inline-block;
-    white-space: nowrap;
+    // white-space: nowrap;
     margin: 0;
+    display:flex;
+    -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+    
+    padding-left: 10px;
+    padding-right:10px;
+    
 `
 const Logo = styled.img`
-    height: 50px;
+    height: 40px;
 `;
 const CartNumber = styled.p`
     font-size: 1.5em;
@@ -44,6 +52,7 @@ const BoldText = styled.select`
     background-color: transparent;
     color: white;
 `;
+
 class NavBar extends Component {
     state = {
         isUserAuth: false,
@@ -61,16 +70,32 @@ class NavBar extends Component {
          
         return(<div>
             <Nav>
-                <Link to="/"><Logo src={navLogo}/></Link>
-                <Address loggedIn= {this.state.isUserAuth} address={this.state.address} name={this.state.userName}/>
-                <Searchbar/>
+                <div class="shamazinLogo">
+                    <Link to="/"><Logo src="https://shamazin.s3.amazonaws.com/shamazinLogo.jpeg"/></Link>
+                </div>
+                &emsp;
+                <div class="centeredVert">
+                    <Address loggedIn= {this.state.isUserAuth} address={this.state.address} name={this.state.userName}/>
+                </div>
+                <div class="centeredVert">
+                    <Searchbar/>
+                </div>
+                
                 <FlagIcon>
                     <option>🇺🇸</option>
                     <option>🇬🇧</option>
                     <option>🇷🇺</option>
                 </FlagIcon>
-                {this.state.isUserAuth ? <Link to="/account"><AddressLabel>Hello {this.state.userName} <br/> <BoldText>Go to your account</BoldText></AddressLabel></Link>: <Link to="/account"><AddressLabel>Hello, <br/> Sign into Account & Lists</AddressLabel></Link>}
-                <Link to="/cart"><CartLogo src={cart}/><CartNumber>{this.state.numberOfItemsInCart}</CartNumber></Link>
+                &emsp;
+
+                <div class="centeredVert">
+                    {this.state.isUserAuth ? <Link to="/account"><AddressLabel>Hello {this.state.userName} <br/> <BoldText>Go to your account</BoldText></AddressLabel></Link>: <Link to="/account"><AddressLabel> <div>Hello, Sign in <br/>Account & Lists</div></AddressLabel></Link>}
+                </div>
+                &emsp;
+                &emsp;
+                <div class="centeredVert">
+                    <Link to="/cart"><CartLogo src={cart}/><CartNumber>{this.state.numberOfItemsInCart}</CartNumber></Link>
+                </div>
                 
             </Nav>
         </div>)

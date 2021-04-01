@@ -16,7 +16,7 @@ function App() {
   return(
     <Router>
       <div> 
-        <NavBar/>
+       <NavBar/>
         <Switch>
           <Route exact path='/' component={Index}/>
           <Route path='/items/:itemID' component={Shamazin}/>

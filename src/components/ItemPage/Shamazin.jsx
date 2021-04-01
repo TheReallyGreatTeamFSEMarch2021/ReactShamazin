@@ -13,6 +13,7 @@ import QuestionComponent from "../Question/Question";
 import AllReviewPhotos from '../Review/allReviewPhotos';
 import RelatedBoughtItemsComponent from '../RelatedBoughtItemsComponent/RelatedBoughtItemsComponent';
 import RatingStats from '../RatingStats/ratingStats';
+import NavBar from '../NavBar/NavBar';
 // import '../../index.css';
 
 class Shamazin extends React.Component{
@@ -75,10 +76,10 @@ class Shamazin extends React.Component{
     render(){
         return(
             <div className="itemPageContainer">
-                <div className="row navBar col-12">
-                    <h1 className="col-12">Navbar</h1>
+                {/* <div className="row navBar col-12">
+                    <NavBar/>
 
-                </div>
+                </div> */}
                 <div className="row col-12">
                     <div className='col-4'>
                         <ProductPhotosComponent
