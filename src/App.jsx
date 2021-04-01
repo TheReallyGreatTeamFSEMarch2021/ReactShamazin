@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import Index from './components/Index/Index';
 import Question from './components/Question/Question';
 
+import NavBar from './components/NavBar/NavBar'
 //Every <Route> that matches the location renders inclusively
 //<Switch> is unique - renders a route exclusively
 
@@ -15,6 +16,7 @@ function App() {
   return(
     <Router>
       <div> 
+        <NavBar/>
         <Switch>
           <Route exact path='/' component={Index}/>
           <Route path='/items/:itemID' component={Shamazin}/>
