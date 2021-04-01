@@ -19,7 +19,6 @@ class StarRating extends React.Component {
         }
     }
 
-
     renderSwitch(rating){
         rating = Math.round(rating);
         const star = <div className="starContainer">
