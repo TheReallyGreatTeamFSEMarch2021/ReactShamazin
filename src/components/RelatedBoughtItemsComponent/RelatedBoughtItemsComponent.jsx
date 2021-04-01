@@ -40,16 +40,6 @@ class RelatedBoughtItemsComponent extends React.Component {
             });
     }
 
-    displayRelatedItems() {
-        const { relatedItems } = this.state;
-
-        return relatedItems.map(item => {
-            return <RelatedItemDisplayComponent 
-                item={item}
-            />
-        });
-    }
-
     displayNextPage() {
         const { id, page, totalNumOfPages } = this.state;
         const nextPage = page >= totalNumOfPages ? 1 : page + 1;
@@ -83,7 +73,7 @@ class RelatedBoughtItemsComponent extends React.Component {
     }
 
     render() {
-        const { shouldDisplayArrow } = this.state;
+        const { relatedItems, shouldDisplayArrow } = this.state;
 
         return (
             <div className="RelatedBoughtItems">
@@ -93,7 +83,9 @@ class RelatedBoughtItemsComponent extends React.Component {
                     shouldDisplayArrow={shouldDisplayArrow}
                 />
 
-                {this.displayRelatedItems()}
+                <RelatedItemDisplayComponent 
+                    relatedItems={relatedItems}
+                />
 
                 <DisplayNavigationComponent
                     direction=">"
