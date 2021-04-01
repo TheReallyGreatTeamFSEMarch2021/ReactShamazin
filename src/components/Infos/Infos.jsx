@@ -24,10 +24,14 @@ class InfosComponent extends React.Component {
     render() {
         
         return(
-        <>
+            <div>
+                <h1>Info</h1>
+            
+        <ul>
          {this.props.infos.map( (info) => (
          <InfoComponent info = {info}/>))}
-        </>
+        </ul>
+        </div>
         );
     }
 }
