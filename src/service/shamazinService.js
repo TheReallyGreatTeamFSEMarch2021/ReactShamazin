@@ -11,6 +11,15 @@ class ShamazinService{
     getFamilyItems(familyId) {
         return axios.get(`/api/item/getByFamilyId/${familyId}`);
     }
+    getFamilyById(familyId) {
+        return axios.get(`/api/itemFamily/get/${familyId}`);
+    }
+    getFamilyByItemId(itemId) {
+        return axios.get(`/api/itemFamily/getByItemId/${itemId}`)
+    }
+    getFamilyRating(familyId) {
+        return axios.get(`/api/itemFamily/getRating/${familyId}`)
+    }
 }
 
 export default new ShamazinService();

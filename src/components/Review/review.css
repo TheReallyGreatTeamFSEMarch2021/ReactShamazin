@@ -4,6 +4,7 @@
     padding-bottom: 7px;
     display: block;
     overflow: auto;
+    margin-bottom: 5px;
 }
 
 .review_titleSection{
@@ -81,15 +82,16 @@
     object-fit:cover;
 }
 
-.customerImages{
-    font-size: 25px;
-    margin: 0;
-}
 
 .buttons{
     clear: both;
+    height: 30px;
 }
 
+.helpfulDiv{
+    width: fit-content;
+    float: left;
+}
 .helpful{
     border-radius: 10px;
     padding-top: 5px;
@@ -101,6 +103,8 @@
     background-color: white;
     outline: none;
     border-color: gray;
+    width: fit-content;
+    float: left;
 }
 
 .helpful:hover{
@@ -108,12 +112,40 @@
     cursor: pointer;
 }
 
+
 .report{
      text-decoration: none;
      color: #2A4E89;
      font-size: 15px;
 }
 
+.reportDiv{
+    float: left;
+    margin-top: 3.5px;
+    margin-left: 5px;
+}
+
 .report:hover{
     cursor: pointer;
+}
+
+
+.starContainer{
+    width: 20px;
+    height: 20px;   
+}
+
+.starPhoto{
+    width: 20px;
+    height: 20px;
+}
+
+.customerImages{
+    font-size: 25px;
+    margin: 0;
+}
+
+.noImages{
+    padding-top: 5px;
+    padding-left: 5px;
 }

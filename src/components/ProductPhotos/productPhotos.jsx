@@ -1,6 +1,11 @@
 import React from 'react';
 import ProductPhotoService from '../../service/productPhotoService';
+import SideExample from './SideExample';
 import './productPhotos.css';
+import './styles.css';
+
+
+
 
 class ProductPhotos extends React.Component {
     constructor(props) {
@@ -8,20 +13,28 @@ class ProductPhotos extends React.Component {
         this.state={
             mainPhotoURL: "blank",
             productPhotos: [],
-            itemID: props.itemID
-        }
+            itemID: props.itemID,
+            focusGalleryItemID: 0
+        };
         this.changeMainPicture = this.changeMainPicture.bind(this);
     }
+
 
     componentDidMount(){
         ProductPhotoService.getProductPhotosByItemID(this.state.itemID) //this.state.itemID
             .then(response => {
                 this.setState({productPhotos: response.data});
                 if(response.data.length>0){
-                    this.setState({mainPhotoURL: response.data[0].photoURL});
+                    this.setState({mainPhotoURL: response.data[0].photoURL, focusGalleryItemID: response.data[0].id});
                 }
             });
     }
+
+
+    changeMainPicture(productPhoto) {
+        this.setState({mainPhotoURL: productPhoto.photoURL, focusGalleryItemID: productPhoto.id});
+    }
+
 
     componentDidUpdate(prevProps, prevState){
         if(prevProps.itemID !== this.props.itemID){
@@ -39,28 +52,54 @@ class ProductPhotos extends React.Component {
         }
     }
 
-    changeMainPicture(photoUrl) {
-        this.setState({mainPhotoURL: photoUrl});
-    }
+   
+   
+
 
     render() {
         const photosList = this.state.productPhotos.map(productPhoto => {
-            return(
-                <img key={productPhoto.id} className="galleryPhoto" src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto.photoURL)}/>
-            );
+            if(productPhoto.id === this.state.focusGalleryItemID){
+                return(
+                    <img class="galleryPhoto focus" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto)}/>
+                )
+            }else{
+                return (
+                    <img class="galleryPhoto" key={productPhoto.id} src={productPhoto.photoURL} alt="" onClick={()=>this.changeMainPicture(productPhoto)}/>
+                );
+            }      
         });
 
-        return(
-            <div className="productPhotoContainer">
-                <div className="row col-12">
-                    <div className="allPhotos col-2">{photosList}</div>
-                    <div className="mainPhoto col-10"><img className="mainImg" src={this.state.mainPhotoURL} alt=""/></div>
+        let mainPhoto = this.state.mainPhotoURL;
+        if(mainPhoto!=="blank"){
+            return(
+                <div class="productPhotoContainer">
+                    <div class="row col-12">
+                        <div class="allPhotos col-2">{photosList}</div>
+                        <div class="mainPhoto col-10">
+                            {/* <img className="mainImg" src={this.state.mainPhotoURL} alt=""/> */}
+                            <SideExample
+                                image={mainPhoto}   
+                            />
+                        </div>
+                    </div>
+                    <div class="row col-12">
+                        <h5 class="productPhotosH5">Roll over image to zoom in.</h5>  
+                        
+                    </div>
+                           
                 </div>
-                
-                <h3>Roll over image to zoom in.</h3>
-            </div>
-        )
+            )
+        }else{
+            return(
+                <div>
+                    LOADING...
+                </div>
+            )
+        }
+        
     }
 }
+
+
 
 export default ProductPhotos;
