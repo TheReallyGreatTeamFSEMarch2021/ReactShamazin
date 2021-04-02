@@ -1,0 +1,86 @@
+.loginPageDiv{
+    /* display:flex;
+    flex-direction: column; */
+    margin-top:20px;
+}
+
+.loginPageDiv *{
+    box-sizing:border-box;
+    /* border: 1px solid pink; */
+}
+
+.SignInBox{
+    border:1px solid grey;
+    border-radius:3px;
+    padding:20px;
+    padding-top:40px;
+    padding-bottom:40px;
+    
+
+}
+
+.signInHeader{
+    font-size:30px;
+    padding-bottom:10px;
+}
+
+.emailOrPhoneNumText{
+    font-size:14px;
+}
+
+.shamazinLoginLogo{
+    width:45%;
+    align-content:center;
+}
+
+.loginContent{
+    text-align: center;
+    
+}
+
+.loginContent * {
+    margin:10px 0px 5px 0px;
+
+}
+
+
+.privacySpan{
+    font-size:10px;
+}
+
+                        
+.continueButton {
+    width:282px;
+    padding: 8px 0px 8px 10px;
+    background-color:#f0c14b;
+    border-radius:3px;
+}
+
+.contineButton:hover{
+    cursor: pointer;
+    color:rgb(240,136,4);
+
+}
+
+
+
+.inputForSignIn{
+    width:282px;
+    padding: 8px 0px 8px 10px;
+    border-radius:3px;
+}
+
+.RegisterButton{
+    width:100%;
+    padding:10px 0px 10px 0px;
+}
+
+.RegisterButton:hover{
+    cursor: pointer;
+}
+
+a.linkToRegister{
+    text-decoration: none;
+    color: black;
+    font-size:16px;
+}
