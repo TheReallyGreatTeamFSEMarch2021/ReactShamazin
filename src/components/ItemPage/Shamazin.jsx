@@ -64,11 +64,12 @@ class Shamazin extends React.Component{
                 ShamazinService.getFamilyRating(response.data.id)
                     .then(resp=>{
                         this.setState({
+
                             rating: resp.data
                         });
                         
                     });
-                
+              
             });
     }
     
@@ -102,12 +103,12 @@ class Shamazin extends React.Component{
                     itemFamilyID={this.state.itemFamily.id}
                 />
                 <div className="row col-12">
-                    <h1>Related Items Component</h1>
                     <RelatedBoughtItemsComponent 
                         itemID={this.state.itemID}
                     />
                 </div>
                 <div className="row col-12">
+
                     <h1>Customer questions &amp; answers</h1>
                     <QuestionComponent
                         itemFamilyID={this.state.itemFamily.id}

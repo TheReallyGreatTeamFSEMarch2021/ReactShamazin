@@ -1,8 +1,6 @@
 import React from 'react';
 import ReviewService from '../../service/reviewService';
-import './ratingStats.scss'
-import StarRating from "../ReviewStarRating/starRating";
-import { render } from 'react-dom';
+import './ratingStats.scss';
 
 class RatingStats extends React.Component{
     constructor(props){
@@ -38,7 +36,7 @@ class RatingStats extends React.Component{
 
     //if there are 0 reveiws render just the title
     renderSwitch(){
-        if(this.state.reviews.length == 0){
+        if(this.state.reviews.length === 0){
             return(
                 <div className='container'>
                     <div className="ratingsTitle">Customer Reviews</div>
@@ -71,6 +69,8 @@ class RatingStats extends React.Component{
                         break;
                     case 5:
                         five += 1;
+                        break;
+                    default:
                         break;
                 }
                 total += this.state.reviews[i].starValue;

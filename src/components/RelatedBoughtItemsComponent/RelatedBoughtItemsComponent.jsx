@@ -3,6 +3,7 @@ import './RelatedBoughtItems.css';
 import RelatedItemDisplayComponent from './RelatedItemDisplayComponent';
 import DisplayNavigationComponent from './DisplayNavigationComponent';
 import relatedBoughtItemService from '../../service/relatedBoughtItemService';
+import HeaderComponent from './HeaderComponent';
 
 class RelatedBoughtItemsComponent extends React.Component {
     constructor(props) {
@@ -40,16 +41,6 @@ class RelatedBoughtItemsComponent extends React.Component {
             });
     }
 
-    displayRelatedItems() {
-        const { relatedItems } = this.state;
-
-        return relatedItems.map(item => {
-            return <RelatedItemDisplayComponent 
-                item={item}
-            />
-        });
-    }
-
     displayNextPage() {
         const { id, page, totalNumOfPages } = this.state;
         const nextPage = page >= totalNumOfPages ? 1 : page + 1;
@@ -83,24 +74,35 @@ class RelatedBoughtItemsComponent extends React.Component {
     }
 
     render() {
-        const { shouldDisplayArrow } = this.state;
+        const {
+            page, 
+            relatedItems,
+            shouldDisplayArrow,
+            totalNumOfPages,
+        } = this.state;
 
         return (
-            <div className="RelatedBoughtItems">
-                <DisplayNavigationComponent
-                    direction="<"
-                    handleClick={this.displayPreviousPage}
-                    shouldDisplayArrow={shouldDisplayArrow}
+            <React.Fragment>
+                <HeaderComponent 
+                    page={page}
+                    totalNumOfPages={totalNumOfPages}
                 />
-
-                {this.displayRelatedItems()}
-
-                <DisplayNavigationComponent
-                    direction=">"
-                    handleClick={this.displayNextPage}
-                    shouldDisplayArrow={shouldDisplayArrow}
-                />
-            </div>
+                <div className="RelatedBoughtItems">
+                    <DisplayNavigationComponent
+                        direction="<"
+                        handleClick={this.displayPreviousPage}
+                        shouldDisplayArrow={shouldDisplayArrow}
+                    />
+                    <RelatedItemDisplayComponent 
+                        relatedItems={relatedItems}
+                    />
+                    <DisplayNavigationComponent
+                        direction=">"
+                        handleClick={this.displayNextPage}
+                        shouldDisplayArrow={shouldDisplayArrow}
+                    />
+                </div>
+            </React.Fragment>
         )
     }
 }
