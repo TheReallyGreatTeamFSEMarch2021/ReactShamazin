@@ -2,5 +2,6 @@
     cursor: pointer;
 }
 .primeTitleLogo {
-    height: 300px;
+    height: 30px;
+    width: auto;
 }

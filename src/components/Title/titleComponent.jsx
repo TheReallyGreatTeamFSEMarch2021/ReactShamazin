@@ -73,7 +73,7 @@ class TitleComponent extends React.Component {
                         <h3>{this.state.reviews.length} answered questions</h3>
                     </div>
                     <div className='row col-12'>
-                        <h3>Price: ${this.state.item.price}</h3> <img className="primeTitleLogo" src="public/prime_logo.png" alt=""/>
+                        <h3>Price: ${this.state.item.price}<img className="primeTitleLogo" src="/prime_logo_rect.png" alt=""/></h3>
                         <FeaturesComponent properties={this.state.item.properties}/>
                     </div>
                     <div className='row col-12'>
