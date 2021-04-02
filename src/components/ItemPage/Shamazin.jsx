@@ -90,11 +90,10 @@ class Shamazin extends React.Component{
                     
                     <TitleComponent
                         infos={this.state.infos}
-                        item={this.state.item} itemFamilyID={this.state.itemFamily.id} rating={this.state.rating}
+                        item={this.state.item} itemFamilyID={this.state.itemFamily.id} rating={this.state.rating} 
+                        itemFamily={this.state.itemFamily}
                     />
                     
-                    
-                   
                     <div class='col-cart'>
                         <h1>Shopping checkout</h1>
                     </div>
@@ -114,7 +113,7 @@ class Shamazin extends React.Component{
                         itemFamilyID={this.state.itemFamily.id}
                         />
                 </div>
-                <div className="row col-12">
+                <div className="row col-12 ratingNReviews">
                     <div className="row col-ratingstats">
                         <RatingStats
                             itemFamilyID={this.state.itemFamily.id} 

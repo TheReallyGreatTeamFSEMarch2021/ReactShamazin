@@ -1,0 +1,8 @@
+.switcherLink {
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    margin: 3px;
+    text-decoration: none;
+    width: fit-content !important;
+}
