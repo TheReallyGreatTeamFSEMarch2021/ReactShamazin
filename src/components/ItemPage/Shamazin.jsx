@@ -102,7 +102,6 @@ class Shamazin extends React.Component{
                     itemFamilyID={this.state.itemFamily.id}
                 />
                 <div className="row col-12">
-                    <h1>Related Items Component</h1>
                     <RelatedBoughtItemsComponent 
                         itemID={this.state.itemID}
                     />

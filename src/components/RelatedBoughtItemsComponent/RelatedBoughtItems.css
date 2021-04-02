@@ -30,6 +30,22 @@
     max-height: 160px;
 }
 
+.RelatedItemHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.RelatedItemHeader > h2 {
+    color: rgb(204, 112, 0);
+}
+
+.RelatedItemHeader > div {
+    flex-grow: 1;
+    text-align: right;
+    font-weight: bold;
+}
+
 .RelatedItemName {
     color: #0059ff;
 }
