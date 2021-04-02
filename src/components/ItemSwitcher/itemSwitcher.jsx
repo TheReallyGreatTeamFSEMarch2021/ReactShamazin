@@ -2,7 +2,8 @@ import React from 'react';
 import { Router } from 'react-router';
 import App from '../../App';
 import ShamazinService from '../../service/shamazinService';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import "./itemSwitcher.css";
 
 class ItemSwitcherComponent extends React.Component {
     constructor(props) {
@@ -29,12 +30,11 @@ class ItemSwitcherComponent extends React.Component {
     render() {
         const itemsList = this.state.items.map(item=>{
             return(
-                <Link key={item.id} to={`/items/${item.id}`}><div className="col-6">{item.name}</div></Link>
+                <Link key={item.id} to={`/items/${item.id}`}><div className="switcherLink col-1">{item.name}</div></Link>
             );
         });
         return(
             <div className="row col-12">
-                <h1>Item Switcher</h1>
                 {itemsList}
             </div>
         );

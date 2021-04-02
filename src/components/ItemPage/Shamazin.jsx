@@ -90,7 +90,8 @@ class Shamazin extends React.Component{
                     
                     <TitleComponent
                         infos={this.state.infos}
-                        item={this.state.item} itemFamilyID={this.state.itemFamily.id} rating={this.state.rating}
+                        item={this.state.item} itemFamilyID={this.state.itemFamily.id} rating={this.state.rating} 
+                        itemFamily={this.state.itemFamily}
                     />
                     
                     
