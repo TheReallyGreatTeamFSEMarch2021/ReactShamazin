@@ -114,7 +114,7 @@ class Shamazin extends React.Component{
                         itemFamilyID={this.state.itemFamily.id}
                         />
                 </div>
-                <div className="row col-12">
+                <div className="row col-12 ratingNReviews">
                     <div className="row col-ratingstats">
                         <RatingStats
                             itemFamilyID={this.state.itemFamily.id} 
