@@ -1,19 +1,36 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+
+
 const Wrapper = styled.div`
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    
 `;
+
 const InputBar = styled("input")`
-    width: 50vw;
+    width: 40vw;
     position: center;
     display: inline-block;
     height: 40px;
     border-radius: 10px;
+    margin:10px;
+    padding-left:15px;
+
+    &:focus{
+        border:2px solid rgb(240,136,4);
+        outline:none;
+    }
 `;
 const SearchButton = styled.button`
-    display: inline-block;
-    border-radius: 10px;
-    font-size: 30px;
+   
+    border-radius: 5px 5px 5px 5px;
+    font-size: 20px;
+    background-color:#f0c14b;
+    border-color:#a88734 #9c7e31 #846a29; 
+    height:40px;
+    width:40px;
+    margin-left: -3px;
 
 `;
 
@@ -21,7 +38,7 @@ class Searchbar extends Component{
  state = {
      userInput: ""
  }
-searchHandler = (e)=>
+searchHandler = (e) =>
 {
     e.preventDefault();
     alert(`You have searched for ${this.state.userInput}\n but this has not been implemented yet...`)
@@ -31,9 +48,12 @@ handleChange = (e)=>{
     this.setState({userInput: e.target.value})
 }
 render(){
-    return (<wrapper>
-        <InputBar  onChange={this.handleChange}placeholder="Search for product"/><SearchButton value = {this.state.userInput} onClick={this.searchHandler}>🔍</SearchButton>
-    </wrapper>)
+    return (
+        <Wrapper>
+            <InputBar  onChange={this.handleChange} placeholder="Search for product"/>
+            <SearchButton value = {this.state.userInput} onClick={this.searchHandler}>🔍</SearchButton>
+           
+        </Wrapper>)
 }
     
 }

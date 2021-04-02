@@ -69,6 +69,10 @@ class ProductPhotos extends React.Component {
             }      
         });
 
+        const comingSoonPhoto= (
+            <img class="galleryPhoto focus" key="7" src="https://shamazin.s3.amazonaws.com/pexels-vie-studio-coming-soon.jpg"/>
+        )
+
         let mainPhoto = this.state.mainPhotoURL;
         if(mainPhoto!=="blank"){
             return(
@@ -91,9 +95,22 @@ class ProductPhotos extends React.Component {
             )
         }else{
             return(
-                <div>
-                    LOADING...
+                <div class="productPhotoContainer">
+                <div class="row col-12">
+                    <div class="allPhotos col-2">{comingSoonPhoto}</div>
+                    <div class="mainPhoto col-10">
+                        {/* <img className="mainImg" src={this.state.mainPhotoURL} alt=""/> */}
+                        <SideExample
+                            image="https://shamazin.s3.amazonaws.com/pexels-vie-studio-coming-soon.jpg"  
+                        />
+                    </div>
                 </div>
+                <div class="row col-12">
+                    <h5 class="productPhotosH5">Roll over image to zoom in.</h5>  
+                    
+                </div>
+                       
+            </div>
             )
         }
         
