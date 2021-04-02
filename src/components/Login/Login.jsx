@@ -9,8 +9,7 @@ class Login extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            title: "LOGIN PAGE",
-            
+            title: "LOGIN PAGE"
         }   
     }
 
