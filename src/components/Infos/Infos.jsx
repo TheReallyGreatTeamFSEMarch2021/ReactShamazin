@@ -4,6 +4,7 @@ import App from '../../App';
 import ShamazinService from '../../service/shamazinService';
 import {Link} from "react-router-dom"
 import InfoComponent, {Info} from '../Info/Info';
+import './Infos.css'
 
 class InfosComponent extends React.Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class InfosComponent extends React.Component {
      {this.props.infos.slice(0,3).map( (info) => (
      <InfoComponent info = {info}/>))}
     </ul>
-    <button onClick= {willExpand}>Show more</button>
+    <button className='infobutton' onClick= {willExpand}>Show more</button>
     </div>
          
          )
@@ -70,7 +71,7 @@ class InfosComponent extends React.Component {
          {this.props.infos.map( (info) => (
          <InfoComponent info = {info}/>))}
         </ul>
-        <button onClick= {willCollapse}>Show less</button>
+        <button className='infobutton' onClick= {willCollapse}>Show less</button>
         </div>
         );
     }
