@@ -34,7 +34,7 @@ class Login extends React.Component{
                             
                         </div>
                         <div class="shamazinLoginLastDiv">
-                        ---------- New to Amazon? ---------- <br/>
+                        New to Amazon?<br/>
                             <button class="RegisterButton">
                                 <Link class="linkToRegister" to='/register' >Create your Amazon account</Link>
                             </button>
