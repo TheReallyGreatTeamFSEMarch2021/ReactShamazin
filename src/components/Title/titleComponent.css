@@ -1,3 +1,11 @@
 .reviewPopup {
     cursor: pointer;
 }
+.primeTitleLogo {
+    height: 30px;
+    width: auto;
+}
+
+.darr {
+    width:20px;
+}
