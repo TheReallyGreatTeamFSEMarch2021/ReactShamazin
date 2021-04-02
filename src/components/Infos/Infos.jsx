@@ -4,6 +4,7 @@ import App from '../../App';
 import ShamazinService from '../../service/shamazinService';
 import {Link} from "react-router-dom"
 import InfoComponent, {Info} from '../Info/Info';
+import './Infos.css';
 
 class InfosComponent extends React.Component {
     constructor(props) {
