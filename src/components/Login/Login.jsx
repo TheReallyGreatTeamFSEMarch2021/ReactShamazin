@@ -9,8 +9,7 @@ class Login extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            title: "LOGIN PAGE",
-            
+            title: "LOGIN PAGE"
         }   
     }
 
@@ -24,7 +23,7 @@ class Login extends React.Component{
                 <div class="row col-12">
                     <div class="col-4"></div>
                     <div class="col-4 loginContent"> 
-                        <img class="shamazinLoginLogo" src="https://shamazin.s3.amazonaws.com/shamazinLogo.jpeg" alt="shamazin logo"/>
+                        <img class="shamazinLoginLogo" src="https://shamazin.s3.amazonaws.com/shamazinLogoRevised.png" alt="shamazin logo"/>
                         <div class="SignInBox">
                             <span class="signInHeader" >Sign-In</span><br/>
                             <label class="emailOrPhoneNumText">Email or mobile phone number</label><br/>
