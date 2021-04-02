@@ -1,7 +1,7 @@
 .voteBox{
     width: 7%;
     float: left;
-    border: 2px solid purple;
+    /*border: 2px solid purple;*/
     padding: 5px;
 
 }
@@ -9,14 +9,12 @@
 .qNaBox{
     width: 80%;
     float: left;
-    border: 2px solid pink;
+    /*border: 2px solid pink;*/
     padding: 20px; 
 }
 
 .question{
     clear: both;
-    padding-top: 7px;
-    padding-bottom: 7px;
     display: block;
     overflow: auto;
 }
@@ -68,7 +66,7 @@
 
 #qNaTitle{
     width: 12%;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin: left;
     display: inline-block;
     margin-right: 10px;
@@ -78,9 +76,9 @@
 }
 
 #question{
-    border: 2px solid purple;
+    /*border: 2px solid purple;*/
     width: 75%;
-    margin: right;
+    padding-left: 5px;
     display: inline-block;
     color: blue;
     overflow: auto;
@@ -92,12 +90,12 @@
 
 .answerHorizontal{
     border: none;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 #answerTitle{
     width: 12%;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     margin: left;
     margin-top: auto;
     margin-right: 10px;
@@ -109,7 +107,7 @@
 }
 
 #answers{
-    border: 2px solid purple;
+    /*border: 2px solid purple;*/
     width: 75%;
     margin: right;
     display: inline-block;
@@ -118,8 +116,12 @@
 
 .answer{
     border: none;
-    padding: 5px;
     overflow: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px
 }
 
+.answerDate{
+    border: none;
+    color: rgb(119, 119, 119);
+}

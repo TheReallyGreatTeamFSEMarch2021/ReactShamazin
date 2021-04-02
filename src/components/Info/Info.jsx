@@ -24,7 +24,7 @@ class InfoComponent extends React.Component {
     render() {
         
         return(
-            <h1>{this.props.info.value}</h1>
+            <li>{this.props.info.value}</li>
         );
     }
 }
