@@ -26,7 +26,8 @@ class TitleComponent extends React.Component {
                 })
             })
         this.setState({
-            rating: Math.round(this.props.rating)
+            rating: Math.round(this.props.rating),
+            item: this.props.item
         });
     }
     componentDidUpdate(prevProps,prevState) {
@@ -59,7 +60,29 @@ class TitleComponent extends React.Component {
     }
 
     render() {
-        return(
+        console.log(this.state.item);
+        if(this.state.item.primeEligible) {
+            return(
+                <div className="col-itemInfo">
+                    <div className="row col-12">
+                        <h1>{this.props.item.name}</h1>
+                        <StarRating starRating={this.state.rating}/>
+                        <h3 className="reviewPopup" onClick={()=>this.showRatings()}>{this.state.reviews.length} ratings
+                            <ReviewPopup showPopup={this.state.showPopup} itemFamilyID={this.state.itemFamilyID}/>
+                        </h3>
+                        <h3>{this.state.reviews.length} answered questions</h3>
+                    </div>
+                    <div className='row col-12'>
+                        <h3>Price: ${this.state.item.price}</h3> <img className="primeTitleLogo" src="public/prime_logo.png" alt=""/>
+                        <FeaturesComponent properties={this.state.item.properties}/>
+                    </div>
+                    <div className='row col-12'>
+                        <InfosComponent infos = {this.props.infos}/>
+                    </div>
+                </div>
+            );
+        }
+        else return(
             <div className="col-itemInfo">
                 <div className="row col-12">
                     <h1>{this.props.item.name}</h1>
@@ -78,6 +101,7 @@ class TitleComponent extends React.Component {
                 </div>
             </div>
         );
+        
     }
 
 }
