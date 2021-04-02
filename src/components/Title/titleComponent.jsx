@@ -85,6 +85,7 @@ class TitleComponent extends React.Component {
                 <div className="col-itemInfo">
                     <div className="row col-12">
                         <h1>{this.props.item.name}</h1>
+                        <h3>Brand: {this.props.itemFamily.brand}</h3>
                         <StarRating starRating={this.state.rating}/>
                         <h3 className="reviewPopup" onMouseEnter={()=>this.showRatings()}>{this.state.reviews.length} ratings<img className="darr" src="/downarrow.png" alt=""/></h3>
                         <h3>{this.state.reviews.length} answered questions</h3>
