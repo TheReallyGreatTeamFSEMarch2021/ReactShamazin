@@ -4,8 +4,10 @@
     /* position:relative; */
     z-index:0;
     font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+    
            
 }
+
 
 .navBarDiv * {
     border: 1px solid blue;

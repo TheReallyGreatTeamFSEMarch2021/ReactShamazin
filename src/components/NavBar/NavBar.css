@@ -1,6 +1,4 @@
-.test{
-    color:pink;
-}
+
 
 .shamazinLogo{
     display:flex;
@@ -14,4 +12,16 @@
     flex-direction:column;
     justify-content: center;
     /* padding-top:5px; */
+}
+
+.centeredVert2{
+    display:flex;
+    align-items: center;
+    margin-top:5px;
+    text-decoration: none;
+}
+
+
+.numItemsInCart{
+    margin-bottom:10px;
 }

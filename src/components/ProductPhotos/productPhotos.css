@@ -1,6 +1,7 @@
 .galleryPhoto {
     max-width:100%;
     border:1px solid #008296;
+    border: 1px solid darkblue;
     padding:3px;
     margin:3px;
 }

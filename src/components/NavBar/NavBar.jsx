@@ -11,6 +11,7 @@ import './NavBar.css';
 const Nav = styled.div`
     width:100% ;
     background-color: rgb(19,25,33);
+    background-color:#0c0c0c;
     // white-space: nowrap;
     margin: 0;
     display:flex;
@@ -27,10 +28,11 @@ const Logo = styled.img`
 const CartNumber = styled.p`
     font-size: 1.5em;
     color: rgb(240,136,4);
-    display: inline-block
+    display: inline-block;
+    
 `;
 const CartLogo = styled.img`
-    height: 25px;
+    width:35px;
 `;
 const AddressLabel = styled.h1`
     color: rgb(142,143,143);
@@ -67,11 +69,11 @@ class NavBar extends Component {
         alert("This has not been implemented yet.")
     }
     render(){
-         
+        const cart2 = "https://shamazin.s3.amazonaws.com/amazonWhiteCart.jpg";
         return(<div>
             <Nav>
                 <div class="shamazinLogo">
-                    <Link to="/"><Logo src="https://shamazin.s3.amazonaws.com/shamazinLogo.jpeg"/></Link>
+                    <Link to="/"><Logo src="https://shamazin.s3.amazonaws.com/shamazinLogoBlack.png"/></Link>
                 </div>
                 &emsp;
                 <div class="centeredVert">
@@ -89,12 +91,12 @@ class NavBar extends Component {
                 &emsp;
 
                 <div class="centeredVert">
-                    {this.state.isUserAuth ? <Link to="/account"><AddressLabel>Hello {this.state.userName} <br/> <BoldText>Go to your account</BoldText></AddressLabel></Link>: <Link to="/account"><AddressLabel> <div>Hello, Sign in <br/>Account & Lists</div></AddressLabel></Link>}
+                    {this.state.isUserAuth ? <Link to="/login"><AddressLabel>Hello {this.state.userName} <br/> <BoldText>Go to your account</BoldText></AddressLabel></Link>: <Link to="/login"><AddressLabel> <div>Hello, Sign in <br/>Account & Lists</div></AddressLabel></Link>}
                 </div>
                 &emsp;
                 &emsp;
                 <div class="centeredVert">
-                    <Link to="/cart"><CartLogo src={cart}/><CartNumber>{this.state.numberOfItemsInCart}</CartNumber></Link>
+                    <Link to="/login"  class="centeredVert2"><CartLogo src={cart}/><CartNumber><span class="numItemsInCart">{this.state.numberOfItemsInCart}</span></CartNumber></Link>
                 </div>
                 
             </Nav>

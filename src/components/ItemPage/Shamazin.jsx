@@ -131,14 +131,11 @@ class Shamazin extends React.Component{
                     </div>
 
                 </div>
-                <div className="row col-12">
+                {/* <div className="row col-12">
                     <TestChildComponent
                         passedProp={this.state.title}
                     />
-                </div>
-
-                
-                
+                </div> */}
             </div>
         )
     }

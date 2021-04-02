@@ -1,6 +1,7 @@
 import React from 'react';
 import {getAllItems} from '../../service/indexService';
 import {Link} from 'react-router-dom';
+import './Index.css';
 
 class Index extends React.Component{
     constructor(props){
@@ -31,8 +32,8 @@ class Index extends React.Component{
         
 
         return(
-            <div>
-                SHAMAZIN ITEM INDEX PAGE
+            <div class="indexPageDiv">
+                <h1>SHAMAZIN ITEM INDEX PAGE</h1>
                 {allItems}
             </div>
         )

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 
 const Wrapper = styled.div`
-    display: inline-block;
+    display: flex;
+    align-items: center;
     
 `;
 
@@ -15,13 +16,21 @@ const InputBar = styled("input")`
     border-radius: 10px;
     margin:10px;
     padding-left:15px;
+
+    &:focus{
+        border:2px solid rgb(240,136,4);
+        outline:none;
+    }
 `;
 const SearchButton = styled.button`
    
-    border-radius: 5px;
+    border-radius: 5px 5px 5px 5px;
     font-size: 20px;
     background-color:#f0c14b;
     border-color:#a88734 #9c7e31 #846a29; 
+    height:40px;
+    width:40px;
+    margin-left: -3px;
 
 `;
 
@@ -40,12 +49,11 @@ handleChange = (e)=>{
 }
 render(){
     return (
-        <wrapper>
-            <InputBar  onChange={this.handleChange}placeholder="Search for product"/>
-            
+        <Wrapper>
+            <InputBar  onChange={this.handleChange} placeholder="Search for product"/>
             <SearchButton value = {this.state.userInput} onClick={this.searchHandler}>🔍</SearchButton>
            
-        </wrapper>)
+        </Wrapper>)
 }
     
 }
