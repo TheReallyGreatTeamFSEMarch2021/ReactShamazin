@@ -2,15 +2,15 @@ import axios from 'axios'
 
 class productPhotoService{
     getProductPhotoByID(id){
-        return axios.get(`/api/productPhotos/${id}`);
+        return axios.get(`https://shamazinapi.jaitken-projects.com/api/productPhotos/${id}`);
     }
 
     getProductPhotosByItemID(itemID){
-        return axios.get(`/api/productPhotosForItem/${itemID}`);
+        return axios.get(`https://shamazinapi.jaitken-projects.com/api/productPhotosForItem/${itemID}`);
     }
 
     deleteProductPhotoByID(productPhotoID){
-        return axios.delete(`/api/productPhotos/${productPhotoID}`);
+        return axios.delete(`https://shamazinapi.jaitken-projects.com/api/productPhotos/${productPhotoID}`);
     }
     // export const getCafeByFilters = filters => {
     //     return axios.post(`/api/cafes/filters`, filters)
